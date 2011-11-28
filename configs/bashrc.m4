@@ -25,6 +25,7 @@ PATH=$PATH:/opt/matlab/bin/
 PS1='\[\e[0;32m\]tom\[\e[0;33m\]@\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\] \[\e[0;32m\]£\[\e[m\] '
 alias xtroll="xlock -bitmap $HOME/Documents/trollface.xbm -mode image"
 export PYTHONPATH="$HOME/python/:$HOME/lib/python2.6/site-packages/"
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib:/usr/lib/perl5/CORE/
 END_COMPUTER()
 
 ON_COMPUTER(LAPTOP)
