@@ -19,6 +19,7 @@ ADD_PROGRAM(a, ario)
 ADD_PROGRAM(f, firefox)
 ADD_PROGRAM(e, thunderbird)
 ADD_PROGRAM(t, thunderbird)
+ADD_PROGRAM(v, gvim)
 
 set $mod Mod4
 
