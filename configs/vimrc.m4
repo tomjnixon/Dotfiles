@@ -12,7 +12,7 @@ set preserveindent
 
 set spelllang=en_gb
 
-set guifont=Terminus\ 8
+set guifont=Monaco\ 8
 set guioptions-=T
 set guioptions-=m
 
