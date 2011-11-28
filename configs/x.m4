@@ -1,0 +1,25 @@
+CONFIG_FILE(x, ~/.xinitrc)
+
+source /etc/X11/xinit/xinitrc.d/*
+
+xset r rate 200 25 &
+setxkbmap gb
+xmodmap ~/.Xmodmap
+xrdb -merge ~/.Xdefaults
+xrdb -merge ~/.Xsolarized
+
+ON_COMPUTER(LAPTOP)
+mpd &
+nm-applet &
+angel ~/.angel &
+mpdscribble -D --conf ~/.mpdscribble &
+dropbox start &
+END_COMPUTER()
+
+while true; do
+        IF_COMPUTER(!UNI, `ck-launch-session ')i3
+        xmessage 'Restart the Window Manager?' \
+                 -buttons 'Yes:1,No:0' -center \
+                 -default 'Yes' -timeout 30    \
+        && break
+done
