@@ -20,6 +20,9 @@ ADD_PROGRAM(f, firefox)
 ADD_PROGRAM(e, thunderbird)
 ADD_PROGRAM(t, thunderbird)
 ADD_PROGRAM(v, gvim)
+IF_COMPUTER(LAPTOP,
+	`ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones)
+	ADD_PROGRAM(s, paswitch speakers; exec notify-send speakers)')
 
 set $mod Mod4
 
