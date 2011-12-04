@@ -26,3 +26,8 @@ let g:SuperTabCrMapping=0
 inoremap <CR> <CR>a<BS>
 nnoremap o o<Space><BS>
 nnoremap O O<Space><BS>
+
+set hidden
+
+" Stop surround.vim remapping s in visual mode.
+xnoremap s s
