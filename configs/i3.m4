@@ -23,6 +23,8 @@ ADD_PROGRAM(v, gvim)
 IF_COMPUTER(LAPTOP,
 	`ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones)
 	ADD_PROGRAM(s, paswitch speakers; exec notify-send speakers)')
+IF_COMPUTER(UNI,
+	`ADD_PROGRAM(l, xlock -bitmap $HOME/Documents/trollface.xbm -mode image +timeelapsed)')
 
 set $mod Mod4
 
