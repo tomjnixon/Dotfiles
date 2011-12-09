@@ -31,3 +31,11 @@ set hidden
 
 " Stop surround.vim remapping s in visual mode.
 xnoremap s s
+
+" Stupid shift key fixes
+cmap W w
+cmap WQ wq
+cmap wQ wq
+cmap Q q
+
+cmap w!! w !sudo tee % >/dev/null
