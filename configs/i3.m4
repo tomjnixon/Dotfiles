@@ -36,7 +36,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-exec uxterm
 
 # kill focused window
-bindsym $mod+Shift+Q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+Shift+P exec i3-exec dmenu_run
