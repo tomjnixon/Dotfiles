@@ -9,6 +9,7 @@ set listchars=tab:⌞\ ,trail:⋅
 set noexpandtab
 set copyindent
 set preserveindent
+set relativenumber
 
 set spelllang=en_gb
 
