@@ -1,42 +1,66 @@
-CONFIG_FILE(vim, ~/.vimrc.local)
+CONFIG_FILE(vim, ~/.vimrc)
+
+set nocompatible
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+syntax on
+filetype plugin indent on
 
 set mouse=a
-colorscheme jellybeans+
-" colorscheme vividchalk
 
+" Whitespace
 set listchars=tab:⌞\ ,trail:⋅
-
 set noexpandtab
 set copyindent
 set preserveindent
-set relativenumber
+set list
+set shiftwidth=2
+set tabstop=2
 
 set spelllang=en_gb
 
+" Looks
+set relativenumber
 set guifont=Monaco\ 8
 set guioptions-=T
 set guioptions-=m
+set guioptions-=e " GTK tabs are less functional and take up more room.
+colorscheme jellybeans
+set showcmd
+
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*.swp,*~
+
 
 ON_COMPUTER(UNI)
 set t_Co=256
 END_COMPUTER()
 
-nnoremap <F5> :GundoToggle<CR>
+map <Leader>sv :so $MYVIMRC<CR>
+map <Leader>u :GundoToggle<CR>
+map <Leader>t :CtrlP<CR>
+map <Leader>b :CtrlPMRUFiles<CR>
+map <Leader>h :noh<CR>
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-let g:SuperTabCrMapping=0
-inoremap <CR> <CR>a<BS>
+" Fix removal of indents.
+inoremap <CR> <CR><Space><BS>
 nnoremap o o<Space><BS>
 nnoremap O O<Space><BS>
+
+
 
 set hidden
 
 " Stop surround.vim remapping s in visual mode.
 xnoremap s s
 
-" Stupid shift key fixes
-cmap W w
-cmap WQ wq
-cmap wQ wq
-cmap Q q
-
 cmap w!! w !sudo tee % >/dev/null
+
+" Align remaps a load of stuff begining with \t, which maked \t slow.
+let g:loaded_AlignMapsPlugin = 1
