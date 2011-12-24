@@ -27,6 +27,7 @@ set guioptions-=m
 set guioptions-=e " GTK tabs are less functional and take up more room.
 colorscheme jellybeans
 set showcmd
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Searching
 set hlsearch
