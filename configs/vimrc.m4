@@ -47,6 +47,9 @@ map <Leader>t :CtrlP<CR>
 map <Leader>b :CtrlPMRUFiles<CR>
 map <Leader>h :noh<CR>
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>gd :Gdiff<CR>
+map <Leader>gD :diffoff!<cr><c-w>h:bd<cr>
+map <Leader>gs :Gstatus<CR>
 
 " Fix removal of indents.
 inoremap <CR> <CR><Space><BS>
