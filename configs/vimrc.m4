@@ -75,6 +75,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 if has("autocmd")
 	autocmd!
+	autocmd BufReadPre,BufNewFile SConstruct,SConscript set filetype=python
 endif
 
 define(VIM_MODULE, `GIT_REPO(~/.vim/bundle/$1, $2)')
