@@ -35,7 +35,7 @@ set ignorecase
 set smartcase
 
 set wildignore+=*.so,*.swp,*~
-
+let g:ctrlp_dotfiles = 0
 
 ON_COMPUTER(UNI)
 set t_Co=256
