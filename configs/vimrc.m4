@@ -51,6 +51,9 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gD :diffoff!<cr><c-w>h:bd<cr>
 map <Leader>gs :Gstatus<CR>
+map <Leader>gw :Gwrite<CR>
+map <Leader>gr :Gread<CR>
+map <Leader>gc :Gcommit<CR>
 
 " Fix removal of indents.
 inoremap <CR> <CR><Space><BS>
