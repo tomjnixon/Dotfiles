@@ -73,6 +73,10 @@ let g:loaded_AlignMapsPlugin = 1
 " Turn on word wrapping.
 command! -nargs=* Wrap set wrap linebreak nolist
 
+if has("autocmd")
+	autocmd!
+endif
+
 define(VIM_MODULE, `GIT_REPO(~/.vim/bundle/$1, $2)')
 
 VIM_MODULE(pathogen,     git://github.com/tpope/vim-pathogen.git)
