@@ -55,6 +55,13 @@ map <Leader>gw :Gwrite<CR>
 map <Leader>gr :Gread<CR>
 map <Leader>gc :Gcommit<CR>
 
+" Speed up buffer switching
+map <C-k> <C-W>k
+map <C-j> <C-W>j
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+
 " Fix removal of indents.
 inoremap <CR> <CR><Space><BS>
 nnoremap o o<Space><BS>
