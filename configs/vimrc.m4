@@ -28,6 +28,9 @@ set guioptions-=e " GTK tabs are less functional and take up more room.
 colorscheme jellybeans
 set showcmd
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" Always show the status line (even if no split windows)
+set laststatus=2
+
 
 " Searching
 set hlsearch
@@ -80,10 +83,7 @@ let g:loaded_AlignMapsPlugin = 1
 " Turn on word wrapping.
 command! -nargs=* Wrap set wrap linebreak nolist
 
-if has("autocmd")
-	autocmd!
-	autocmd BufReadPre,BufNewFile SConstruct,SConscript set filetype=python
-endif
+au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 
 define(VIM_MODULE, `GIT_REPO(~/.vim/bundle/$1, $2)')
 
