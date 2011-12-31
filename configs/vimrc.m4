@@ -85,6 +85,40 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 
+" Enable backups and persistent undo.
+set backup
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" Load and save view settings.
+au BufWinLeave * silent! mkview
+au BufWinEnter * silent! loadview
+au BufWinLeave * let b:winview = winsaveview()
+au BufWinEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+
+" Make directories for the above settings.
+" Modified from spf13-vim.
+function! InitializeDirectories()
+	let separator = "."
+	let parent = $HOME . "/.vim"
+	let dir_list = {
+				\ 'backup': 'backupdir',
+				\ 'views': 'viewdir',
+				\ 'swap': 'directory',
+				\ 'undo': 'undodir' }
+	
+	for [dirname, settingname] in items(dir_list)
+		let directory = parent . '/' . dirname . "/"
+		if !isdirectory(directory)
+			call mkdir(directory)
+		endif
+		let directory = substitute(directory, " ", "\\\\ ", "")
+		exec "set " . settingname . "=" . directory
+	endfor
+endfunction
+call InitializeDirectories()
+
 define(VIM_MODULE, `GIT_REPO(~/.vim/bundle/$1, $2)')
 
 VIM_MODULE(pathogen,     git://github.com/tpope/vim-pathogen.git)
