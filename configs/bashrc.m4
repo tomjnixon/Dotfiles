@@ -18,7 +18,7 @@ alias xterm=uxterm
 
 export PATH=$HOME/.cabal/bin/:$HOME/bin/:$PATH
 
-sinclude(bash_secrets.m4)
+sinclude(bash_secrets.inc.m4)
 
 ON_COMPUTER(UNI)
 PATH=$PATH:/opt/matlab/bin/
