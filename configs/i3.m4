@@ -21,8 +21,8 @@ ADD_PROGRAM(e, thunderbird)
 ADD_PROGRAM(t, thunderbird)
 ADD_PROGRAM(v, gvim)
 IF_COMPUTER(LAPTOP,
-	`ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones)
-	ADD_PROGRAM(s, paswitch speakers; exec notify-send speakers)')
+	`ADD_PROGRAM(h, amixer -c DAC sset softvol 255; exec amixer -c ThinkPadEC sset Console mute; exec notify-send headphones)
+	ADD_PROGRAM(s, amixer -c DAC sset softvol 0; exec amixer -c ThinkPadEC sset Console unmute; exec shet /tom/speakers_on 1; exec notify-send speakers)')
 IF_COMPUTER(UNI,
 	`ADD_PROGRAM(l, xlock -bitmap $HOME/Documents/trollface.xbm -mode image +timeelapsed)')
 
