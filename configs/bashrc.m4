@@ -22,7 +22,6 @@ sinclude(bash_secrets.inc.m4)
 
 ON_COMPUTER(UNI)
 PATH=$PATH:/opt/matlab/bin/
-PS1='\[\e[0;32m\]tom\[\e[0;33m\]@\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\] \[\e[0;32m\]£\[\e[m\] '
 alias xtroll="xlock -bitmap $HOME/Documents/trollface.xbm -mode image"
 export PYTHONPATH="$HOME/python/:$HOME/lib/python2.6/site-packages/"
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib:/usr/lib/perl5/CORE/
@@ -35,6 +34,8 @@ function t() { /usr/bin/t $@; update_t; }
 alias git=hub
 export MPD_HOST="/home/tom/.mpd/socket"
 source /home/tom/dev/Scripts/shelf
+ELSE_COMPUTER()
+PS1='\[\e[0;32m\]tom\[\e[0;33m\]@\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\] \[\e[0;32m\]£\[\e[m\] '
 END_COMPUTER()
 
 
