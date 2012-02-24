@@ -14,6 +14,7 @@ alias pbin="curl -F 'sprunge=<-' http://sprunge.us"
 alias ls='ls --color=auto'
 alias no="yes n"
 alias xterm=uxterm
+alias g=git
 
 export PATH=$HOME/.cabal/bin/:$HOME/bin/:$PATH
 
