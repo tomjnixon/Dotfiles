@@ -63,6 +63,8 @@ map <Leader>gs :Gstatus<CR>
 map <Leader>gw :Gwrite<CR>
 map <Leader>gr :Gread<CR>
 map <Leader>gc :Gcommit<CR>
+map <Leader>gp :Git push<CR>
+map <Leader>ft :filetype detect<CR>
 
 " Speed up buffer switching
 map <C-k> <C-W>k
