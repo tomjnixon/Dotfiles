@@ -40,6 +40,12 @@ set smartcase
 
 set wildignore+=*.so,*.swp,*~
 let g:ctrlp_dotfiles = 0
+let g:ctrlp_user_command = {
+	\ 'types': {
+		\ 1: ['.git/', 'cd %s && git ls-files -c -o --exclude-standard'],
+	\ }
+	\ }
+
 
 ON_COMPUTER(UNI)
 set t_Co=256
