@@ -37,6 +37,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-exec uxterm
 
+# start a floating terminal
+bindsym $mod+Shift+Return exec i3-exec uxterm -class xterm-float
+for_window [class="xterm-float"] floating enable
+
 # kill focused window
 bindsym $mod+q kill
 
