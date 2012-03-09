@@ -65,6 +65,9 @@ map <Leader>gr :Gread<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gp :Git push<CR>
 map <Leader>ft :filetype detect<CR>
+map <Leader>x :silent ! chmod +x %<CR>
+map <Leader>bp ggO#!/usr/bin/env python2<esc>\x
+map <Leader>bb ggO#!/bin/bash<esc>\x
 
 " Speed up buffer switching
 map <C-k> <C-W>k
