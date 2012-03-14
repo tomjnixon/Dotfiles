@@ -20,7 +20,7 @@ ADD_PROGRAM(a, ario)
 ADD_PROGRAM(f, firefox)
 ADD_PROGRAM(e, thunderbird)
 ADD_PROGRAM(t, thunderbird)
-ADD_PROGRAM(v, gvim)
+ADD_PROGRAM(v, IF_COMPUTER(LAPTOP, i3-gvim, gvim))
 IF_COMPUTER(LAPTOP,
 	`ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones-ext)
 	ADD_PROGRAM(s, paswitch speakers; exec amixer sset Master 70%; exec shet /tom/speakers_on 1; exec notify-send speakers)
