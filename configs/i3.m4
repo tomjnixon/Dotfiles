@@ -9,6 +9,7 @@ define(ADD_WORKSPACE,
 bindsym $mod+Shift+upcase($1) move workspace $2
 undivert')
 
+define(`pamix', `pamixer -s alsa_output.pci-0000_00_1b.0.analog-stereo')
 
 ADD_WORKSPACE(i, im)
 ADD_WORKSPACE(e, email)
@@ -21,8 +22,9 @@ ADD_PROGRAM(e, thunderbird)
 ADD_PROGRAM(t, thunderbird)
 ADD_PROGRAM(v, gvim)
 IF_COMPUTER(LAPTOP,
-	`ADD_PROGRAM(h, amixer -c DAC sset softvol 255; exec amixer -c ThinkPadEC sset Console mute; exec notify-send headphones)
-	ADD_PROGRAM(s, amixer -c DAC sset softvol 0; exec amixer -c ThinkPadEC sset Console unmute; exec shet /tom/speakers_on 1; exec notify-send speakers)')
+	`ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones-ext)
+	ADD_PROGRAM(s, paswitch speakers; exec amixer sset Master 70%; exec shet /tom/speakers_on 1; exec notify-send speakers)
+	ADD_PROGRAM(i, paswitch speakers; exec amixer sset Master 20%; exec notify-send headphones-int)')
 IF_COMPUTER(UNI,
 	`ADD_PROGRAM(l, xlock -bitmap $HOME/Documents/trollface.xbm -mode image +timeelapsed)')
 
@@ -143,6 +145,13 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioStop exec mpc stop
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
+# set-volume doesn't work for some reason...
+bindsym XF86AudioMute exec pamix --decrease 1000
+bindsym XF86AudioLowerVolume exec pamix --decrease 5
+bindsym XF86AudioRaiseVolume exec pamix --increase 5
+bindsym Shift+XF86AudioLowerVolume exec pamix --decrease 1
+bindsym Shift+XF86AudioRaiseVolume exec pamix --increase 1
+
 END_COMPUTER()
 
 # Make various things behave
