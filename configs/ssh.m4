@@ -8,7 +8,7 @@ define(`HOST', `Host $1
 PRINT_ARGS(shift($@))')
 
 define(`HOST_HOME', `HOST($@)
-HOST($1-server, shift($@), ProxyCommand ssh server "/bin/nc $1 22")')
+HOST($1-server, shift($@), ProxyCommand ssh server "/bin/nc %h 22")')
 
 define(`U_TOM', `User tom')
 define(`U_UNI', `User nixont9')
