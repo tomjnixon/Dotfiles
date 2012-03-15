@@ -8,7 +8,7 @@ define(`HOST', `Host $1
 PRINT_ARGS(shift($@))')
 
 define(`HOST_HOME', `HOST($@)
-HOST($1-server, shift($@), ProxyCommand ssh server "/bin/nc $1 22")')
+HOST($1-server, shift($@), ProxyCommand ssh server "/bin/nc %h 22")')
 
 define(`U_TOM', `User tom')
 define(`U_UNI', `User nixont9')
@@ -24,7 +24,7 @@ HOST(serverauto, N(18sg.net), TRUSTED, U_TOM, AUTO)
 HOST(jobs, N(18sg.net), TRUSTED, User jobs)
 HOST_HOME(tom-tp, N(tom-tp), TRUSTED, U_TOM)
 HOST_HOME(shelf, N(shelf), TRUSTED, User shelf)
-HOST_HOME(pre, N(tom-pre), TRUSTED, U_TOM)
+HOST_HOME(pre, N(tom-pre), User root)
 
 HOST(*.cs.man.ac.uk, U_UNI)
 HOST(uni, N_UNI(lf042), U_UNI)
