@@ -24,7 +24,7 @@ HOST(serverauto, N(18sg.net), TRUSTED, U_TOM, AUTO)
 HOST(jobs, N(18sg.net), TRUSTED, User jobs)
 HOST_HOME(tom-tp, N(tom-tp), TRUSTED, U_TOM)
 HOST_HOME(shelf, N(shelf), TRUSTED, User shelf)
-HOST_HOME(pre, N(pre), TRUSTED, U_TOM)
+HOST_HOME(pre, N(tom-pre), TRUSTED, U_TOM)
 
 HOST(*.cs.man.ac.uk, U_UNI)
 HOST(uni, N_UNI(lf042), U_UNI)
