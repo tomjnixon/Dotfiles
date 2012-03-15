@@ -1,5 +1,10 @@
 CONFIG_FILE(ssh, ~/.ssh/config)
 
+# Make SSH *quick*.
+ControlMaster auto
+ControlPath ~/.ssh/sock_%h_%p_%r
+ControlPersist yes
+
 define(`PRINT_ARGS', `ifelse(eval($#<2),1, `	$1'
 ,`	$1
 PRINT_ARGS(shift($@))')')
