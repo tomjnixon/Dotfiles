@@ -68,6 +68,7 @@ map <Leader>ft :filetype detect<CR>
 map <Leader>x :silent ! chmod +x %<CR>
 map <Leader>bp ggO#!/usr/bin/env python2<esc>\x
 map <Leader>bb ggO#!/bin/bash<esc>\x
+map <Leader>w :set wrap linebreak nolist<CR>
 
 " Speed up buffer switching
 map <C-k> <C-W>k
@@ -90,9 +91,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Align remaps a load of stuff begining with \t, which maked \t slow.
 let g:loaded_AlignMapsPlugin = 1
-
-" Turn on word wrapping.
-command! -nargs=* Wrap set wrap linebreak nolist
 
 au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 
@@ -147,3 +145,4 @@ VIM_MODULE(unimpared     , https://github.com/tpope/vim-unimpaired.git)
 VIM_MODULE(conque        , https://github.com/rosenfeld/conque-term.git)
 VIM_MODULE(indent-object , https://github.com/michaeljsmith/vim-indent-object.git)
 VIM_MODULE(coffee-script , https://github.com/kchmck/vim-coffee-script.git)
+VIM_MODULE(rename        , https://github.com/danro/rename.vim.git)

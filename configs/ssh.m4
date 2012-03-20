@@ -1,5 +1,10 @@
 CONFIG_FILE(ssh, ~/.ssh/config)
 
+# Make SSH *quick*.
+ControlMaster auto
+ControlPath ~/.ssh/sock_%h_%p_%r
+ControlPersist yes
+
 define(`PRINT_ARGS', `ifelse(eval($#<2),1, `	$1'
 ,`	$1
 PRINT_ARGS(shift($@))')')
@@ -25,6 +30,7 @@ HOST(jobs, N(18sg.net), TRUSTED, User jobs)
 HOST_HOME(tom-tp, N(tom-tp), TRUSTED, U_TOM)
 HOST_HOME(shelf, N(shelf), TRUSTED, User shelf)
 HOST_HOME(pre, N(tom-pre), User root)
+HOST_HOME(matt-beagle, N(matt-beagle), U_TOM)
 
 HOST(*.cs.man.ac.uk, U_UNI)
 HOST(uni, N_UNI(lf042), U_UNI)
