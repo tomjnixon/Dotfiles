@@ -3,6 +3,12 @@ CONFIG_FILE(ssh, ~/.ssh/config)
 # Make SSH *quick*.
 ControlMaster auto
 ControlPath ~/.ssh/sock_%h_%p_%r
+
+# Ping the remote side every 30 seconds, and disconnect if more than 2
+# packets are lost.
+ServerAliveInterval 30
+ServerAliveCountMax 2
+
 IF_COMPUTER(!UNI, ControlPersist yes)
 
 define(`PRINT_ARGS', `ifelse(eval($#<2),1, `	$1'
@@ -25,7 +31,6 @@ define(`N', `Hostname $1')
 define(`N_UNI', `Hostname $1.cs.man.ac.uk')
 
 HOST(server, N(18sg.net), TRUSTED, U_TOM)
-HOST(serverauto, N(18sg.net), TRUSTED, U_TOM, AUTO)
 HOST(jobs, N(18sg.net), TRUSTED, User jobs)
 HOST_HOME(tom-tp, N(tom-tp), TRUSTED, U_TOM)
 HOST_HOME(shelf, N(shelf), TRUSTED, User shelf)
@@ -42,5 +47,7 @@ NFS_HOST(misc, tomn_tomnmisc)
 NFS_HOST(tomn, tomn_tomn)
 NFS_HOST(git, tomn_tomngit)
 
+HOST(vps, N(vps.tomn.co.uk), U_TOM)
+HOST(vps_console, N(rehnquist.prgmr.com), User tomn, IdentityFile ~/.ssh/vps)
 
-
+HOST(tom-tp-vps, N(localhost), ProxyCommand ssh vps "/bin/nc %h 10022")
