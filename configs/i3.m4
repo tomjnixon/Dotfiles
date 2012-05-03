@@ -26,7 +26,7 @@ IF_COMPUTER(LAPTOP,
 	ADD_PROGRAM(s, paswitch speakers; exec amixer sset Master 70%; exec shet /tom/speakers_on 1; exec notify-send speakers)
 	ADD_PROGRAM(i, paswitch speakers; exec amixer sset Master 20%; exec notify-send headphones-int)')
 IF_COMPUTER(UNI,
-	`ADD_PROGRAM(l, xlock -bitmap $HOME/Documents/trollface.xbm -mode image +timeelapsed)')
+	`ADD_PROGRAM(l, xlock -bitmap $HOME/Documents/trollface.xbm -mode image -timeelapsed)')
 
 set $mod Mod4
 
