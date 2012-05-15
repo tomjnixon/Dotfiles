@@ -94,6 +94,9 @@ let g:loaded_AlignMapsPlugin = 1
 
 au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 
+au FileType tex let b:surround_109 = "\\(\r\\)"
+au FileType tex let b:surround_77 = "\\[\r\\]"
+
 " Enable backups and persistent undo.
 set backup
 set undofile
