@@ -31,7 +31,7 @@ IF_COMPUTER(UNI,
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
