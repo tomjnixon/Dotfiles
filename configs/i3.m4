@@ -207,5 +207,6 @@ bindsym Escape mode "default"
 bindsym $mod+p mode "program"
 
 bar {
+	mode hide
 	status_command i3status
 }
