@@ -19,11 +19,7 @@ xinput set-int-prop "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard with
 
 xset +fp /usr/share/fonts/local/
 
-mpd &
-nm-applet &
-angel ~/.angel &
-mpdscribble -D --conf ~/.mpdscribble &
-dropbox start &
+supervisord -c ~/.supervisor
 END_COMPUTER()
 
 while true; do
