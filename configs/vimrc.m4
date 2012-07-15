@@ -31,6 +31,8 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " Always show the status line (even if no split windows)
 set laststatus=2
 
+" Make O work in a timely fashion.
+set ttimeoutlen=100
 
 " Searching
 set hlsearch
