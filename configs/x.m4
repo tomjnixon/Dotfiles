@@ -67,3 +67,7 @@ CONFIG_FILE(x, ~/.Xjellybeans)
 *color5:                j_magenta
 *color6:                j_cyan
 *color7:                j_white
+
+CONFIG_FILE(x, ~/.Xmodmap)
+clear Lock
+keycode 0x42 = Escape
