@@ -23,7 +23,7 @@ supervisord -c ~/.supervisor
 END_COMPUTER()
 
 while true; do
-        IF_COMPUTER(!UNI, `ck-launch-session dbus-launch ')i3
+        IF_COMPUTER(!UNI, `exec ck-launch-session dbus-launch ')i3
         xmessage 'Restart the Window Manager?' \
                  -buttons 'Yes:1,No:0' -center \
                  -default 'Yes' -timeout 30    \
