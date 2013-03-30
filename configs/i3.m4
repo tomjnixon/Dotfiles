@@ -23,10 +23,11 @@ ADD_PROGRAM(t, thunderbird)
 ADD_PROGRAM(v, IF_COMPUTER(LAPTOP, i3-gvim, gvim))
 IF_COMPUTER(LAPTOP,
 	`ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones-ext)
-	ADD_PROGRAM(s, paswitch speakers; exec amixer sset Master 70%; exec shet /tom/speakers_on 1; exec notify-send speakers)
-	ADD_PROGRAM(i, paswitch speakers; exec amixer sset Master 20%; exec notify-send headphones-int)')
-IF_COMPUTER(UNI,
-	`ADD_PROGRAM(l, xlock -bitmap $HOME/Documents/trollface.xbm -mode image -timeelapsed)')
+	ADD_PROGRAM(s, paswitch speakers; exec shet /tom/arduino/speakers_on 1; exec notify-send speakers)
+	ADD_PROGRAM($mod+s, shet /tom/arduino/speakers_on 0)
+	ADD_PROGRAM(i, paswitch internal; exec amixer sset Master 20%; exec notify-send internal)
+	ADD_PROGRAM(l, shet /tom/light/on)
+	ADD_PROGRAM($mod+l, shet /tom/light/off)')
 
 set $mod Mod4
 

@@ -7,7 +7,7 @@ set -o vi
 export HISTSIZE=10000
 export PYTHONSTARTUP=~/.pythonrc
 export EDITOR=vim
-export BROWSER=google-chrome
+export BROWSER=firefox
 export AWT_TOOLKIT=webscarab
 alias pbin="curl -F 'sprunge=<-' http://sprunge.us"
 
@@ -16,7 +16,7 @@ alias no="yes n"
 alias xterm=uxterm
 alias g=git
 
-export PATH=$HOME/.cabal/bin/:$HOME/bin/:$PATH
+export PATH=node_modules/.bin/:$HOME/.cabal/bin/:$HOME/bin/:$PATH
 
 sinclude(bash_secrets.inc.m4)
 
@@ -41,7 +41,7 @@ END_COMPUTER()
 
 ON_COMPUTER(MINE)
 source shet_complete
-export SHET_HOST="localhost"
+export SHET_HOST="server"
 END_COMPUTER()
 
 function send_to_kindle()
