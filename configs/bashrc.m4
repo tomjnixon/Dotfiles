@@ -40,7 +40,7 @@ END_COMPUTER()
 
 
 ON_COMPUTER(MINE)
-source shet_complete
+[ -f /usr/bin/shet_complete ] && source /usr/bin/shet_complete
 export SHET_HOST="server"
 END_COMPUTER()
 
