@@ -44,16 +44,36 @@ ON_COMPUTER(MINE)
 export SHET_HOST="server"
 END_COMPUTER()
 
-function send_to_kindle()
-{
-        echo "$1" | ssh 18sg.net "cat > redirect"
+[ -f /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
+
+# This currently doesn't run virtualenvwrapper hooks.
+function activate_current_venv() {
+	if [[ -n "${VIRTUAL_ENV+x}" ]]; then
+		source "$VIRTUAL_ENV/bin/activate"
+	fi
+}
+activate_current_venv
+
+function get_desk() {
+	i3-msg -t GET_WORKSPACES | \
+		jshon -a -e focused -u -p -e name -u | \
+		grep -A 1 true | tail -n 1
+}
+
+function here() {
+	desk=$(get_desk)
+	
+	mkdir -p $HOME/.i3/desks/
+	echo "cd $(pwd)" > $HOME/.i3/desks/$desk
+	if [[ -n "${VIRTUAL_ENV+x}" ]]; then
+		echo "export VIRTUAL_ENV='$VIRTUAL_ENV'" >> $HOME/.i3/desks/$desk
+	fi
 }
 
 function there() {
-        desk=$(
-                i3-msg -t GET_WORKSPACES |
-                jshon -a -e focused -u -p -e name -u |
-                grep -A 1 true | tail -n 1)
-        directory=$(cat $HOME/.i3/desks/$desk || echo $HOME)
-        cd $directory
+	desk=$(get_desk)
+	
+	[[ -n "${VIRTUAL_ENV+x}" ]] && deactivate
+	[ -f "$HOME/.i3/desks/$desk" ] && source "$HOME/.i3/desks/$desk"
+	activate_current_venv
 }
