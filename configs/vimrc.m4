@@ -154,3 +154,6 @@ VIM_MODULE(coffee-script , PROTO://github.com/kchmck/vim-coffee-script.git)
 VIM_MODULE(rename        , PROTO://github.com/danro/rename.vim.git)
 VIM_MODULE(easymotion    , PROTO://github.com/Lokaltog/vim-easymotion.git)
 VIM_MODULE(n3            , PROTO://github.com/vim-scripts/n3.vim.git)
+VIM_MODULE(airline       , PROTO://github.com/bling/vim-airline.git)
+VIM_MODULE(bufferline    , PROTO://github.com/bling/vim-bufferline.git)
+let g:bufferline_rotate=1
