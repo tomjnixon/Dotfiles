@@ -17,7 +17,7 @@ alias no="yes n"
 alias xterm=uxterm
 alias g=git
 
-export PATH=node_modules/.bin/:$HOME/.cabal/bin/:$HOME/bin/:$PATH
+export PATH=$HOME/.rvm/bin/:node_modules/.bin/:$HOME/.cabal/bin/:$HOME/bin/:$PATH
 
 sinclude(bash_secrets.inc.m4)
 
