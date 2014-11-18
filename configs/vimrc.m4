@@ -9,12 +9,13 @@ set mouse=a
 
 " Whitespace
 set listchars=tab:⌞\ ,trail:⋅
-set noexpandtab
+set expandtab
 set copyindent
 set preserveindent
 set list
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
+set smarttab
 
 set spelllang=en_gb
 
