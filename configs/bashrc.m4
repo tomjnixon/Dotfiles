@@ -5,6 +5,7 @@ export LC_ALL=en_US.UTF-8
 set -o vi
 
 export HISTSIZE=10000
+export HISTCONTROL=ignorespace
 export PYTHONSTARTUP=~/.pythonrc
 export EDITOR=vim
 export BROWSER=firefox
