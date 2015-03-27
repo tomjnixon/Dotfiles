@@ -52,7 +52,7 @@ set spelllang=en_gb
 
 " Looks
 set relativenumber
-set guifont=IF_COMPUTER(MINE, Terminus\ 7, Monaco\ 8)
+set guifont=Terminus\ 7
 set guioptions-=T
 set guioptions-=m
 set guioptions-=e " GTK tabs are less functional and take up more room.
