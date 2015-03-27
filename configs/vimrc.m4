@@ -80,10 +80,6 @@ let g:ctrlp_user_command = {
 	\ }
 
 
-ON_COMPUTER(UNI)
-set t_Co=256
-END_COMPUTER()
-
 map <Leader>sv :so $MYVIMRC<CR>
 map <Leader>u :GundoToggle<CR>
 map <Leader>t :CtrlP<CR>

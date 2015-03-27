@@ -1,4 +1,4 @@
-CONFIG_FILE(bash, IF_COMPUTER(UNI, ~/.my_bashrc.all, ~/.bashrc))
+CONFIG_FILE(bash, ~/.bashrc)
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -20,13 +20,6 @@ alias g=git
 export PATH=$HOME/.rvm/bin/:node_modules/.bin/:$HOME/.cabal/bin/:$HOME/bin/:$PATH
 
 sinclude(bash_secrets.inc.m4)
-
-ON_COMPUTER(UNI)
-PATH=$PATH:/opt/matlab/bin/
-alias xtroll="xlock -bitmap $HOME/Documents/trollface.xbm -mode image"
-export PYTHONPATH="$HOME/python/:$HOME/lib/python2.6/site-packages/"
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib:/usr/lib/perl5/CORE/
-END_COMPUTER()
 
 ON_COMPUTER(LAPTOP)
 PATH=$PATH:/home/tom/opt/arm-2010.09/bin/

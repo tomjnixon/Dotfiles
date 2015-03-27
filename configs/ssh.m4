@@ -9,8 +9,6 @@ ControlPath ~/.ssh/sock_%h_%p_%r
 ServerAliveInterval 30
 ServerAliveCountMax 2
 
-IF_COMPUTER(!UNI, ControlPersist yes)
-
 define(`PRINT_ARGS', `ifelse(eval($#<2),1, `	$1'
 ,`	$1
 PRINT_ARGS(shift($@))')')
