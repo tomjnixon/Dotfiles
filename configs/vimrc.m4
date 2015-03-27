@@ -157,3 +157,7 @@ VIM_MODULE(n3            , PROTO://github.com/vim-scripts/n3.vim.git)
 VIM_MODULE(airline       , PROTO://github.com/bling/vim-airline.git)
 VIM_MODULE(bufferline    , PROTO://github.com/bling/vim-bufferline.git)
 let g:bufferline_rotate=1
+VIM_MODULE(ycm           , PROTO://github.com/Valloric/YouCompleteMe.git)
+let g:ycm_server_keep_logfiles=1
+let g:ycm_server_use_vim_stdout = 1
+VIM_MODULE(scad          , PROTO://github.com/vim-scripts/openscad.vim)
