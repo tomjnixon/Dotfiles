@@ -1,9 +1,39 @@
 CONFIG_FILE(vim, ~/.vimrc)
 
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-syntax on
+GIT_REPO(~/.vim/bundle/Vundle.vim, https://github.com/gmarik/Vundle.vim.git)
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'nanotech/jellybeans.vim.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'vim-scripts/Gundo.git'
+Plugin 'mileszs/ack.vim.git'
+Plugin 'vim-scripts/Gist.vim.git'
+Plugin 'tsaleh/vim-align.git'
+Plugin 'tpope/vim-markdown.git'
+Plugin 'tpope/vim-repeat.git'
+Plugin 'tpope/vim-unimpaired.git'
+Plugin 'michaeljsmith/vim-indent-object.git'
+Plugin 'kchmck/vim-coffee-script.git'
+Plugin 'danro/rename.vim.git'
+Plugin 'Lokaltog/vim-easymotion.git'
+Plugin 'vim-scripts/n3.vim.git'
+Plugin 'Valloric/YouCompleteMe.git'
+Plugin 'vim-scripts/openscad.vim'
+
+call vundle#end()
 filetype plugin indent on
+
+let g:bufferline_rotate=1
+let g:ycm_server_keep_logfiles=1
+let g:ycm_server_use_vim_stdout = 1
 
 set mouse=a
 
@@ -132,32 +162,3 @@ function! InitializeDirectories()
 	endfor
 endfunction
 call InitializeDirectories()
-
-define(VIM_MODULE, `GIT_REPO(~/.vim/bundle/$1, $2)')
-define(PROTO, IF_COMPUTER(LAPTOP, https, git))
-
-VIM_MODULE(pathogen      , PROTO://github.com/tpope/vim-pathogen.git)
-VIM_MODULE(fugitive      , PROTO://github.com/tpope/vim-fugitive.git)
-VIM_MODULE(ctrlp         , PROTO://github.com/kien/ctrlp.vim.git)
-VIM_MODULE(jellybeans    , PROTO://github.com/nanotech/jellybeans.vim.git)
-VIM_MODULE(surround      , PROTO://github.com/tpope/vim-surround.git)
-VIM_MODULE(gundo         , PROTO://github.com/vim-scripts/Gundo.git)
-VIM_MODULE(ack           , PROTO://github.com/mileszs/ack.vim.git)
-VIM_MODULE(gist          , PROTO://github.com/vim-scripts/Gist.vim.git)
-VIM_MODULE(align         , PROTO://github.com/tsaleh/vim-align.git)
-VIM_MODULE(markdown      , PROTO://github.com/tpope/vim-markdown.git)
-VIM_MODULE(repeat        , PROTO://github.com/tpope/vim-repeat.git)
-VIM_MODULE(unimpared     , PROTO://github.com/tpope/vim-unimpaired.git)
-VIM_MODULE(conque        , PROTO://github.com/rosenfeld/conque-term.git)
-VIM_MODULE(indent-object , PROTO://github.com/michaeljsmith/vim-indent-object.git)
-VIM_MODULE(coffee-script , PROTO://github.com/kchmck/vim-coffee-script.git)
-VIM_MODULE(rename        , PROTO://github.com/danro/rename.vim.git)
-VIM_MODULE(easymotion    , PROTO://github.com/Lokaltog/vim-easymotion.git)
-VIM_MODULE(n3            , PROTO://github.com/vim-scripts/n3.vim.git)
-VIM_MODULE(airline       , PROTO://github.com/bling/vim-airline.git)
-VIM_MODULE(bufferline    , PROTO://github.com/bling/vim-bufferline.git)
-let g:bufferline_rotate=1
-VIM_MODULE(ycm           , PROTO://github.com/Valloric/YouCompleteMe.git)
-let g:ycm_server_keep_logfiles=1
-let g:ycm_server_use_vim_stdout = 1
-VIM_MODULE(scad          , PROTO://github.com/vim-scripts/openscad.vim)
