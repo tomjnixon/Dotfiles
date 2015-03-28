@@ -31,6 +31,9 @@ font -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Always show windows as urgent for a short time.
+force_display_urgency_hint 500ms
+
 # start a terminal
 bindsym $mod+Return exec i3-exec uxterm
 
