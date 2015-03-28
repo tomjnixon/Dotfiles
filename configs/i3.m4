@@ -6,8 +6,6 @@ define(ADD_WORKSPACE,
 `bindsym $mod+$1 workspace $2
 bindsym $mod+Shift+upcase($1) move workspace $2')
 
-define(`pamix', `pamixer -s alsa_output.pci-0000_00_1b.0.analog-stereo')
-
 ADD_WORKSPACE(i, im)
 ADD_WORKSPACE(e, email)
 ADD_WORKSPACE(m, music)
@@ -16,16 +14,8 @@ mode "program" {
     ADD_PROGRAM(c, google-chrome)
     ADD_PROGRAM(a, ario)
     ADD_PROGRAM(f, firefox)
-    ADD_PROGRAM(e, thunderbird)
     ADD_PROGRAM(t, thunderbird)
-    ADD_PROGRAM(v, IF_COMPUTER(LAPTOP, i3-gvim, gvim))
-    IF_COMPUTER(LAPTOP,
-        `ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones-ext)
-        ADD_PROGRAM(s, paswitch speakers; exec shet /tom/arduino/speakers_on 1; exec notify-send speakers)
-        ADD_PROGRAM($mod+s, shet /tom/arduino/speakers_on 0)
-        ADD_PROGRAM(i, paswitch internal; exec amixer sset Master 20%; exec notify-send internal)
-        ADD_PROGRAM(l, shet /tom/light/on)
-        ADD_PROGRAM($mod+l, shet /tom/light/off)')
+    ADD_PROGRAM(v, gvim)
     
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -136,10 +126,6 @@ workspace_auto_back_and_forth yes
 bindsym $mod+Escape workspace back_and_forth
 
 ON_COMPUTER(MINE)
-# SHET commands
-bindsym $mod+F1 exec shet /tom/toggle_desk
-bindsym $mod+F2 exec shet /tom/toggle_bedside
-
 bindsym XF86Launch1 exec xset dpms force off
 
 # Music keys
