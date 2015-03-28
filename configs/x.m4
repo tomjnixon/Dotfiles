@@ -18,9 +18,9 @@ xinput set-int-prop "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard with
 xinput set-int-prop "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard with TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
 
 xset +fp /usr/share/fonts/local/
+END_COMPUTER()
 
 supervisord -c ~/.supervisor
-END_COMPUTER()
 
 while true; do
         exec dbus-launch i3
