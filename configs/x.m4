@@ -24,10 +24,8 @@ UXTerm*vt100.bellIsUrgent: true
 XTerm*metaSendsEscape: true
 urxvt.scrollBar: false
 urxvt*termName: rxvt-unicode
-ON_COMPUTER(MINE)
 urxvt.font: xft:Terminus:antialias=False:pixelsize=7
 UXTerm*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
-END_COMPUTER()
 urxvt.fading: false
 
 CONFIG_FILE(x, ~/.Xjellybeans)
