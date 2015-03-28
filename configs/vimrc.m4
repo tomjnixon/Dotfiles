@@ -159,3 +159,7 @@ function! InitializeDirectories()
 	endfor
 endfunction
 call InitializeDirectories()
+
+if filereadable(".vim.custom")
+    so .vim.custom
+endif
