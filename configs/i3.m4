@@ -16,6 +16,7 @@ mode "program" {
     ADD_PROGRAM(f, firefox)
     ADD_PROGRAM(t, thunderbird)
     ADD_PROGRAM(v, gvim)
+    ADD_PROGRAM(x, i3lock -c 000000)
     
     bindsym Return mode "default"
     bindsym Escape mode "default"
