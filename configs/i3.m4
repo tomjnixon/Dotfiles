@@ -127,10 +127,10 @@ bindsym $mod+Shift+asterisk move workspace 8
 bindsym $mod+Shift+parenleft move workspace 9
 bindsym $mod+Shift+parenright move workspace 10
 
-ON_COMPUTER(LAPTOP)
-bindsym $mod+v output_move LVDS1
-bindsym $mod+b output_move VGA1
-END_COMPUTER()
+bindsym $mod+v move workspace to output left
+bindsym $mod+b move workspace to output right
+bindsym $mod+Shift+V move workspace to output down
+bindsym $mod+Shift+B move workspace to output up
 
 workspace_auto_back_and_forth yes
 bindsym $mod+Escape workspace back_and_forth
