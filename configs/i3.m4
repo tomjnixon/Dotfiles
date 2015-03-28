@@ -126,7 +126,6 @@ bindsym $mod+Shift+B move workspace to output up
 workspace_auto_back_and_forth yes
 bindsym $mod+Escape workspace back_and_forth
 
-ON_COMPUTER(MINE)
 bindsym XF86Launch1 exec xset dpms force off
 
 # Music keys
@@ -134,14 +133,13 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioStop exec mpc stop
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
-# set-volume doesn't work for some reason...
-bindsym XF86AudioMute exec pamix --decrease 1000
-bindsym XF86AudioLowerVolume exec pamix --decrease 5
-bindsym XF86AudioRaiseVolume exec pamix --increase 5
-bindsym Shift+XF86AudioLowerVolume exec pamix --decrease 1
-bindsym Shift+XF86AudioRaiseVolume exec pamix --increase 1
-
-END_COMPUTER()
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-; exec amixer set Master unmute
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+; exec amixer set Master unmute
+bindsym Shift+XF86AudioLowerVolume exec amixer set Master 1%-; exec amixer set Master unmute
+bindsym Shift+XF86AudioRaiseVolume exec amixer set Master 1%+; exec amixer set Master unmute
+bindsym $mod+XF86AudioLowerVolume exec amixer set Master 30%; exec amixer set Master unmute
+bindsym $mod+XF86AudioRaiseVolume exec amixer set Master 100%; exec amixer set Master unmute
 
 # Make various things behave
 for_window [title="xfce4-notifyd"] floating enable; border none
