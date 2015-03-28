@@ -31,9 +31,10 @@ ELSE_COMPUTER()
 PS1='\[\e[0;32m\]tom\[\e[0;33m\]@\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\] \[\e[0;32m\]£\[\e[m\] '
 END_COMPUTER()
 
-[ -f /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
 
-# This currently doesn't run virtualenvwrapper hooks.
+# virtualenv activation must happen in the shell for it to be able to set up
+# the prompt and deactivate. The desk script just sets up the VIRTUAL_ENV
+# variable, and the actual activation is done by the shell.
 function activate_current_venv() {
 	if [[ -n "${VIRTUAL_ENV+x}" ]]; then
 		source "$VIRTUAL_ENV/bin/activate"
