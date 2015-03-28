@@ -17,6 +17,7 @@ mode "program" {
     ADD_PROGRAM(t, thunderbird)
     ADD_PROGRAM(v, gvim)
     ADD_PROGRAM(x, i3lock -c 000000)
+    ADD_PROGRAM(k, setup_keyboard)
     
     bindsym Return mode "default"
     bindsym Escape mode "default"

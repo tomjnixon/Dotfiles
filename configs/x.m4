@@ -2,25 +2,12 @@ CONFIG_FILE(x, ~/.xinitrc)
 
 source /etc/X11/xinit/xinitrc.d/*
 
-xset r rate 200 25 &
-setxkbmap gb
-xmodmap ~/.Xmodmap
 xrdb -merge ~/.Xdefaults
 xrdb -merge ~/.Xjellybeans
 
-ON_COMPUTER(LAPTOP)
-xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
-xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
-xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
-
-xinput set-int-prop "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard with TrackPoint" "Evdev Wheel Emulation" 8 1
-xinput set-int-prop "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard with TrackPoint" "Evdev Wheel Emulation Button" 8 2
-xinput set-int-prop "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard with TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
-
-xset +fp /usr/share/fonts/local/
-END_COMPUTER()
-
 supervisord -c ~/.supervisor
+
+setup_keyboard
 
 while true; do
         exec dbus-launch i3
@@ -71,3 +58,15 @@ CONFIG_FILE(x, ~/.Xjellybeans)
 CONFIG_FILE(x, ~/.Xmodmap)
 clear Lock
 keycode 0x42 = Escape
+
+EXECUTABLE_FILE(x, ~/bin/setup_keyboard)
+#!/bin/bash
+xset r rate 200 25 &
+setxkbmap gb
+xmodmap ~/.Xmodmap
+
+for id in $(xinput --list | grep "TrackPoint" | grep -Po 'id=\K[0-9]+'); do
+        xinput set-int-prop $id "Evdev Wheel Emulation" 8 1
+        xinput set-int-prop $id "Evdev Wheel Emulation Button" 8 2
+        xinput set-int-prop $id "Evdev Wheel Emulation Axes" 8 6 7 4 5
+done
