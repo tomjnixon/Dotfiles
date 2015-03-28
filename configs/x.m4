@@ -2,7 +2,7 @@ CONFIG_FILE(x, ~/.xinitrc)
 
 source /etc/X11/xinit/xinitrc.d/*
 
-xrdb -merge ~/.Xdefaults
+xrdb ~/.Xdefaults
 xrdb -merge ~/.Xjellybeans
 
 supervisord -c ~/.supervisor
@@ -19,14 +19,15 @@ done
 
 CONFIG_FILE(x, ~/.Xdefaults)
 urxvt.urgentOnBell: true
-UXTerm*vt100.bellIsUrgent: true
+xterm*bellIsUrgent: true
 
-XTerm*metaSendsEscape: true
+xterm*metaSendsEscape: true
 urxvt.scrollBar: false
 urxvt*termName: rxvt-unicode
 urxvt.font: xft:Terminus:antialias=False:pixelsize=7
-UXTerm*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
+xterm*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
 urxvt.fading: false
+xterm*saveLines: 4096
 
 CONFIG_FILE(x, ~/.Xjellybeans)
 #define j_black    #3b3b3b
