@@ -1,13 +1,10 @@
 CONFIG_FILE(i3, ~/.i3/config)
 
-define(ADD_PROGRAM,
-`divert(1)bindsym $1 exec i3-exec $2; mode "default"
-divert')
+define(ADD_PROGRAM, `bindsym $1 exec i3-exec $2; mode "default"')
 define(upcase, `translit(`$*', `a-z', `A-Z')')
 define(ADD_WORKSPACE,
-`divert(2)bindsym $mod+$1 workspace $2
-bindsym $mod+Shift+upcase($1) move workspace $2
-undivert')
+`bindsym $mod+$1 workspace $2
+bindsym $mod+Shift+upcase($1) move workspace $2')
 
 define(`pamix', `pamixer -s alsa_output.pci-0000_00_1b.0.analog-stereo')
 
@@ -15,19 +12,25 @@ ADD_WORKSPACE(i, im)
 ADD_WORKSPACE(e, email)
 ADD_WORKSPACE(m, music)
 
-ADD_PROGRAM(c, google-chrome)
-ADD_PROGRAM(a, ario)
-ADD_PROGRAM(f, firefox)
-ADD_PROGRAM(e, thunderbird)
-ADD_PROGRAM(t, thunderbird)
-ADD_PROGRAM(v, IF_COMPUTER(LAPTOP, i3-gvim, gvim))
-IF_COMPUTER(LAPTOP,
-	`ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones-ext)
-	ADD_PROGRAM(s, paswitch speakers; exec shet /tom/arduino/speakers_on 1; exec notify-send speakers)
-	ADD_PROGRAM($mod+s, shet /tom/arduino/speakers_on 0)
-	ADD_PROGRAM(i, paswitch internal; exec amixer sset Master 20%; exec notify-send internal)
-	ADD_PROGRAM(l, shet /tom/light/on)
-	ADD_PROGRAM($mod+l, shet /tom/light/off)')
+mode "program" {
+    ADD_PROGRAM(c, google-chrome)
+    ADD_PROGRAM(a, ario)
+    ADD_PROGRAM(f, firefox)
+    ADD_PROGRAM(e, thunderbird)
+    ADD_PROGRAM(t, thunderbird)
+    ADD_PROGRAM(v, IF_COMPUTER(LAPTOP, i3-gvim, gvim))
+    IF_COMPUTER(LAPTOP,
+        `ADD_PROGRAM(h, paswitch headphones; exec notify-send headphones-ext)
+        ADD_PROGRAM(s, paswitch speakers; exec shet /tom/arduino/speakers_on 1; exec notify-send speakers)
+        ADD_PROGRAM($mod+s, shet /tom/arduino/speakers_on 0)
+        ADD_PROGRAM(i, paswitch internal; exec amixer sset Master 20%; exec notify-send internal)
+        ADD_PROGRAM(l, shet /tom/light/on)
+        ADD_PROGRAM($mod+l, shet /tom/light/off)')
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+p mode "program"
 
 set $mod Mod4
 
@@ -132,8 +135,6 @@ END_COMPUTER()
 workspace_auto_back_and_forth yes
 bindsym $mod+Escape workspace back_and_forth
 
-undivert(2)
-
 ON_COMPUTER(MINE)
 # SHET commands
 bindsym $mod+F1 exec shet /tom/toggle_desk
@@ -200,14 +201,20 @@ bindsym Escape mode "default"
 
 bindsym $mod+r mode "resize"
 
-mode "program" {
-undivert(1)
-bindsym Return mode "default"
-bindsym Escape mode "default"
-}
-bindsym $mod+p mode "program"
 
 bar {
 	mode hide
 	status_command i3status
 }
+
+EXECUTABLE_FILE(i3, ~/bin/i3-exec)
+#!/bin/bash
+
+desk=$(
+        i3-msg -t GET_WORKSPACES |
+        jshon -a -e focused -u -p -e name -u |
+        grep -A 1 true | tail -n 1)
+
+[ -f "$HOME/.i3/desks/$desk" ] && source "$HOME/.i3/desks/$desk"
+
+exec $@
