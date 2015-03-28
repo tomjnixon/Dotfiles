@@ -1,7 +1,7 @@
 CONFIG_FILE(bash, ~/.bashrc)
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LANG=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
 set -o vi
 
 export HISTSIZE=10000
@@ -10,6 +10,7 @@ export PYTHONSTARTUP=~/.pythonrc
 export EDITOR=vim
 export BROWSER=firefox
 export AWT_TOOLKIT=webscarab
+export MPD_HOST="/home/tom/.mpd/socket"
 alias pbin="curl -F 'sprunge=<-' http://sprunge.us"
 
 alias ls='ls --color=auto'
@@ -17,25 +18,17 @@ alias no="yes n"
 alias xterm=uxterm
 alias g=git
 
-export PATH=$HOME/.rvm/bin/:node_modules/.bin/:$HOME/.cabal/bin/:$HOME/bin/:$PATH
+export PATH=$HOME/.rvm/bin/:$PATH
+export PATH=node_modules/.bin/:$PATH
+export PATH=$HOME/.cabal/bin/:$PATH
+export PATH=$HOME/bin/:$PATH
 
 sinclude(bash_secrets.inc.m4)
 
 ON_COMPUTER(LAPTOP)
-PATH=$PATH:/home/tom/opt/arm-2010.09/bin/
 PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\W\[\e[m\] \[\e[0;32m\]£\[\e[m\] '
-function t() { /usr/bin/t $@; update_t; }
-alias git=hub
-export MPD_HOST="/home/tom/.mpd/socket"
-source /home/tom/dev/Scripts/shelf
 ELSE_COMPUTER()
 PS1='\[\e[0;32m\]tom\[\e[0;33m\]@\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\] \[\e[0;32m\]£\[\e[m\] '
-END_COMPUTER()
-
-
-ON_COMPUTER(MINE)
-[ -f /usr/bin/shet_complete ] && source /usr/bin/shet_complete
-export SHET_HOST="server"
 END_COMPUTER()
 
 [ -f /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
