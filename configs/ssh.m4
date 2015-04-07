@@ -33,3 +33,5 @@ HOST(vps, N(vps.tomn.co.uk), U_TOM)
 HOST(vps_console, N(rehnquist.prgmr.com), User tomn, IdentityFile ~/.ssh/vps)
 
 HOST(tom-tp-vps, N(localhost), U_TOM, ProxyCommand ssh vps "/bin/nc %h 10022")
+
+sinclude(ssh_priv.inc.m4)
