@@ -25,7 +25,8 @@ Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'danro/rename.vim.git'
 Plugin 'Lokaltog/vim-easymotion.git'
 Plugin 'vim-scripts/n3.vim.git'
-Plugin 'Valloric/YouCompleteMe.git'
+Plugin 'davidhalter/jedi-vim.git'
+Plugin 'ervandew/supertab.git'
 Plugin 'vim-scripts/openscad.vim'
 
 call vundle#end()
