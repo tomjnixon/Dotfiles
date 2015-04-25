@@ -145,6 +145,10 @@ bindsym Shift+XF86AudioRaiseVolume exec amixer set Master 1%+; exec amixer set M
 bindsym $mod+XF86AudioLowerVolume exec amixer set Master 30%; exec amixer set Master unmute
 bindsym $mod+XF86AudioRaiseVolume exec amixer set Master 100%; exec amixer set Master unmute
 
+# Brightness keys
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5 -time 0
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 -time 0
+
 # Make various things behave
 for_window [title="xfce4-notifyd"] floating enable; border none
 for_window [class="MPlayer"] floating enable
