@@ -210,4 +210,4 @@ desk=$(
 
 [ -f "$HOME/.i3/desks/$desk" ] && source "$HOME/.i3/desks/$desk"
 
-exec $@
+exec "$@"
