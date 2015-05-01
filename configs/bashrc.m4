@@ -21,6 +21,7 @@ alias g=git
 export PATH=$HOME/.rvm/bin/:$PATH
 export PATH=node_modules/.bin/:$PATH
 export PATH=$HOME/.cabal/bin/:$PATH
+export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/bin/:$PATH
 
 sinclude(bash_secrets.inc.m4)
