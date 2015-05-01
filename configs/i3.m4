@@ -11,7 +11,7 @@ ADD_WORKSPACE(e, email)
 ADD_WORKSPACE(m, music)
 
 mode "program" {
-    ADD_PROGRAM(c, google-chrome)
+    ADD_PROGRAM(c, chromium)
     ADD_PROGRAM(a, ario)
     ADD_PROGRAM(f, firefox)
     ADD_PROGRAM(t, xinput --enable "SynPS/2 Synaptics TouchPad")
