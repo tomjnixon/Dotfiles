@@ -149,6 +149,8 @@ bindsym $mod+XF86AudioRaiseVolume exec amixer set Master 100%; exec amixer set M
 # Brightness keys
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5 -time 0
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 -time 0
+bindsym Shift+XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 1 -time 0
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1 -time 0
 
 # Make various things behave
 for_window [title="xfce4-notifyd"] floating enable; border none
