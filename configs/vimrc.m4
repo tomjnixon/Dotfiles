@@ -33,10 +33,6 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-let g:bufferline_rotate=1
-let g:ycm_server_keep_logfiles=1
-let g:ycm_server_use_vim_stdout = 1
-
 set mouse=a
 
 " Whitespace
