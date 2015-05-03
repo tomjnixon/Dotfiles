@@ -33,6 +33,13 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
+" configure jedi
+let g:jedi#popup_on_dot = 0
+let g:jedi#use_tabs_not_buffers = 0
+
+" configure supertab
+let g:SuperTabDefaultCompletionType = "context"
+
 set mouse=a
 
 " Whitespace
