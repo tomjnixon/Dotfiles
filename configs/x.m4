@@ -39,20 +39,20 @@ CONFIG_FILE(x, ~/.Xjellybeans)
 #define j_cyan     #71b9f8
 #define j_white    #adadad
 
-*background:            #151515
-*foreground:            #e8e8d3
-*fading:                40
-*fadeColor:            #e8e8d3
-*cursorColor:           #b0d0f0
+xterm*background:            #151515
+xterm*foreground:            #e8e8d3
+xterm*fading:                40
+xterm*fadeColor:            #e8e8d3
+xterm*cursorColor:           #b0d0f0
 
-*color0:                j_black
-*color1:                j_red
-*color2:                j_green
-*color3:                j_yellow
-*color4:                j_blue
-*color5:                j_magenta
-*color6:                j_cyan
-*color7:                j_white
+xterm*color0:                j_black
+xterm*color1:                j_red
+xterm*color2:                j_green
+xterm*color3:                j_yellow
+xterm*color4:                j_blue
+xterm*color5:                j_magenta
+xterm*color6:                j_cyan
+xterm*color7:                j_white
 
 CONFIG_FILE(x, ~/.Xmodmap)
 clear Lock
