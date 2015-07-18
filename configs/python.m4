@@ -6,7 +6,3 @@ except ImportError:
 else:
     import rlcompleter
     readline.parse_and_bind("tab: complete")
-                
-
-def c(*args):
-	return reduce(lambda a, b: (lambda arg: a(b(arg))), reversed(args))
