@@ -26,6 +26,7 @@ Plugin 'danro/rename.vim.git'
 Plugin 'Lokaltog/vim-easymotion.git'
 Plugin 'vim-scripts/n3.vim.git'
 Plugin 'davidhalter/jedi-vim.git'
+Plugin 'Rip-Rip/clang_complete.git'
 Plugin 'ervandew/supertab.git'
 Plugin 'vim-scripts/openscad.vim'
 
