@@ -5,6 +5,7 @@ source /etc/X11/xinit/xinitrc.d/*
 xrdb ~/.Xdefaults
 xrdb -merge ~/.Xjellybeans
 
+mkdir -p ~/.supervisor_logs
 supervisord -c ~/.supervisor
 
 setup_keyboard
