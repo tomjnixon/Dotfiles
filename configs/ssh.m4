@@ -3,6 +3,7 @@ CONFIG_FILE(ssh, ~/.ssh/config)
 # Make SSH *quick*.
 ControlMaster auto
 ControlPath ~/.ssh/sock_%h_%p_%r
+ControlPersist yes
 
 # Ping the remote side every 30 seconds, and disconnect if more than 2
 # packets are lost.
