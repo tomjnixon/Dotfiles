@@ -1,16 +1,16 @@
 CONFIG_FILE(supervisor, ~/.supervisor)
 [supervisord]
-childlogdir=/home/tom/.supervisor_logs
+childlogdir=%(here)s/.supervisor_logs
 directory=%(here)s
 
 [rpcinterface:supervisor]
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [supervisorctl]
-serverurl=unix:///home/tom/.supervisor.sock
+serverurl=unix://%(here)s/.supervisor.sock
 
 [unix_http_server]
-file=/home/tom/.supervisor.sock
+file=%(here)s/.supervisor.sock
 
 [inet_http_server]
 port = 127.0.0.1:9001
