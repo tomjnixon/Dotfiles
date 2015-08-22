@@ -11,8 +11,8 @@ export EDITOR=vim
 export BROWSER=firefox
 export AWT_TOOLKIT=webscarab
 export MPD_HOST="/home/tom/.mpd/socket"
-alias pbin="curl -F 'sprunge=<-' http://sprunge.us"
 
+alias pbin="curl -F 'sprunge=<-' http://sprunge.us"
 alias ls='ls --color=auto'
 alias no="yes n"
 alias xterm=uxterm
