@@ -20,6 +20,9 @@ sinclude(supervisor_priv.inc.m4)
 ON_COMPUTER(LAPTOPS)
 [program:nm-applet]
 command=nm-applet
+
+[program:batt_mon]
+command=batt_mon
 END_COMPUTER()
 
 ON_COMPUTER(LAPTOP)
