@@ -17,8 +17,10 @@ port = 127.0.0.1:9001
 
 sinclude(supervisor_priv.inc.m4)
 
+ON_COMPUTER(LAPTOPS)
 [program:nm-applet]
 command=nm-applet
+END_COMPUTER()
 
 ON_COMPUTER(LAPTOP)
 [program:mpd]
