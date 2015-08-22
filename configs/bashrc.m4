@@ -17,6 +17,7 @@ alias ls='ls --color=auto'
 alias no="yes n"
 alias xterm=uxterm
 alias g=git
+alias supervisorctl_cfg="supervisorctl -c ~/.supervisor"
 
 export PATH=$HOME/.rvm/bin/:$PATH
 export PATH=node_modules/.bin/:$PATH
