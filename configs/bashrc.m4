@@ -20,7 +20,6 @@ alias g=git
 alias supervisorctl_cfg="supervisorctl -c ~/.supervisor"
 
 export PATH=$HOME/.rvm/bin/:$PATH
-export PATH=node_modules/.bin/:$PATH
 export PATH=$HOME/.cabal/bin/:$PATH
 export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/bin/:$PATH
