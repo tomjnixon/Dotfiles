@@ -38,6 +38,7 @@ syntax on
 " configure jedi
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#smart_auto_mappings = 0
 
 " configure supertab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
