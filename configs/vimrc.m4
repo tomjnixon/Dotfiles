@@ -31,6 +31,7 @@ Plugin 'ervandew/supertab.git'
 Plugin 'vim-scripts/openscad.vim'
 Plugin 'jez/vim-ispc.git'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
+Plugin 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 filetype plugin indent on
@@ -44,6 +45,20 @@ let g:jedi#smart_auto_mappings = 0
 " configure supertab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set complete-=i
+
+" configure table mode; rename lots of keys so they don't clash with ctrlp
+" (mapped to <Leader>t)
+let g:table_mode_map_prefix = '<Leader>a'
+let g:table_mode_realign_map = '<Leader>ar'
+let g:table_mode_delete_row_map = '<Leader>add'
+let g:table_mode_delete_column_map = '<Leader>adc'
+let g:table_mode_add_formula_map = '<Leader>afa'
+let g:table_mode_eval_formula_map = '<Leader>afe'
+let g:table_mode_echo_cell_map = '<Leader>a?'
+let g:table_mode_sort_map = '<Leader>as'
+" pandoc tables.
+let g:table_mode_corner_corner="+"
+let g:table_mode_header_fillchar="="
 
 set mouse=a
 
