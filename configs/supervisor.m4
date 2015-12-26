@@ -32,7 +32,7 @@ command=mpd --no-daemon
 [program:mpdscribble]
 command=mpdscribble -D --conf .mpdscribble
 
-# [program:redshift]
-# command=redshift  -l 53.3656:-2.2280 -t 6500:3700
+[program:redshift]
+command=redshift  -l 53.3656:-2.2280 -t 6500:3700
 END_COMPUTER()
 
