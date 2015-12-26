@@ -30,6 +30,7 @@ Plugin 'Rip-Rip/clang_complete.git'
 Plugin 'ervandew/supertab.git'
 Plugin 'vim-scripts/openscad.vim'
 Plugin 'jez/vim-ispc.git'
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
 
 call vundle#end()
 filetype plugin indent on
