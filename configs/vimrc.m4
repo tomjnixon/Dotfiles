@@ -1,6 +1,7 @@
 CONFIG_FILE(vim, ~/.vimrc)
 
 GIT_REPO(~/.vim/bundle/Vundle.vim, https://github.com/gmarik/Vundle.vim.git)
+ADD_TO_SCRIPT(vim +PluginUpdate +PluginClean +qall)
 
 set nocompatible
 filetype off
@@ -16,7 +17,7 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'sjl/gundo.vim.git'
 Plugin 'mileszs/ack.vim.git'
 Plugin 'vim-scripts/Gist.vim.git'
-Plugin 'tsaleh/vim-align.git'
+Plugin 'junegunn/vim-easy-align.git'
 Plugin 'tpope/vim-markdown.git'
 Plugin 'tpope/vim-repeat.git'
 Plugin 'tpope/vim-unimpaired.git'
@@ -45,6 +46,10 @@ let g:jedi#smart_auto_mappings = 0
 " configure supertab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set complete-=i
+
+" configure EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " configure table mode; rename lots of keys so they don't clash with ctrlp
 " (mapped to <Leader>t)
