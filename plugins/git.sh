@@ -8,6 +8,13 @@ function update_git_repo() {
 	(
 		cd $path
 		git init -q
-		git pull $remote
+		
+		(git remote | grep -q origin) && git remote remove origin
+		git remote add origin "$remote"
+		
+		git fetch origin master
+		git branch --set-upstream-to=origin/master master
+		
+		git merge origin/master
 	)
 }
