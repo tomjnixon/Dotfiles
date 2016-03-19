@@ -30,6 +30,15 @@ xterm*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
 urxvt.fading: false
 xterm*saveLines: 4096
 
+! allow using shift in xterm to copy/paste to/from the clipboard
+*VT100.Translations: #override \
+                     Shift <Btn1Down>:   select-start()              \n\
+                     Shift <Btn1Motion>: select-extend()             \n\
+                     Shift <Btn1Up>:     select-end(CLIPBOARD)       \n\
+                     Shift <Btn2Up>:     insert-selection(CLIPBOARD) \n\
+                     Shift <Btn3Down>:   start-extend()              \n\
+                     Shift <Btn3Motion>: select-extend()
+
 CONFIG_FILE(x, ~/.Xjellybeans)
 #define j_black    #3b3b3b
 #define j_red      #cf6a4c
