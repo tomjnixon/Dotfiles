@@ -11,3 +11,18 @@ CONFIG_FILE(pip, ~/.pip/pip.conf)
 [global]
 wheel-dir = ~/.pip/wheelhouse
 find-links = ~/.pip/wheelhouse
+
+CONFIG_FILE(wheels, ~/.pip/wheels.txt)
+numpy
+scipy
+pandas
+enum34
+pytest
+mock
+matplotlib
+jupyter
+seaborn
+pip
+virtualenv
+wheen
+tox

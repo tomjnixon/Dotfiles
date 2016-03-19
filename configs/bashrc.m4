@@ -66,3 +66,7 @@ function there() {
 	[ -f "$HOME/.i3/desks/$desk" ] && source "$HOME/.i3/desks/$desk"
 	activate_current_venv
 }
+
+function update_wheels() {
+    pip2 wheel -r ~/.pip/wheels.txt
+}
