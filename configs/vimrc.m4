@@ -10,6 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'nanotech/jellybeans.vim.git'
@@ -36,9 +37,6 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'hynek/vim-python-pep8-indent'
 
 call vundle#end()
-filetype plugin indent on
-syntax on
-
 " configure jedi
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
@@ -46,7 +44,7 @@ let g:jedi#smart_auto_mappings = 0
 
 " configure supertab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-set complete-=i
+let b:SuperTabNoCompleteAfter=['^ *']
 
 " configure EasyAlign
 xmap ga <Plug>(EasyAlign)
@@ -69,14 +67,10 @@ let g:table_mode_header_fillchar="="
 set mouse=a
 
 " Whitespace
-set listchars=tab:⌞\ ,trail:⋅
 set expandtab
-set copyindent
-set preserveindent
 set list
 set shiftwidth=4
 set tabstop=4
-set smarttab
 
 set spelllang=en_gb
 
@@ -89,11 +83,6 @@ set guioptions-=e " GTK tabs are less functional and take up more room.
 colorscheme jellybeans
 set showcmd
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-" Always show the status line (even if no split windows)
-set laststatus=2
-
-" Make O work in a timely fashion.
-set ttimeoutlen=100
 
 " Searching
 set hlsearch
@@ -102,6 +91,7 @@ set ignorecase
 set smartcase
 
 set wildignore+=*.so,*.swp,*~
+set wildmode=longest,list " readline sytle completion
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_user_command = {
 	\ 'types': {
