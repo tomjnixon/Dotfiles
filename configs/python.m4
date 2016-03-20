@@ -29,4 +29,3 @@ tox
 
 CONFIG_FILE(matplotlib, ~/.config/matplotlib/matplotlibrc)
 backend : TkAgg
-interactive : True
