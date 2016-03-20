@@ -134,12 +134,6 @@ map <C-j> <C-W>j
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-
-" Fix removal of indents.
-inoremap <CR> <CR><Space><BS>
-nnoremap o o<Space><BS>
-nnoremap O O<Space><BS>
-
 set hidden
 
 " Stop surround.vim remapping s in visual mode.
