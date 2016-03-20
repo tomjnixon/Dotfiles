@@ -33,6 +33,7 @@ Plugin 'vim-scripts/openscad.vim'
 Plugin 'jez/vim-ispc.git'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'hynek/vim-python-pep8-indent'
 
 call vundle#end()
 filetype plugin indent on
