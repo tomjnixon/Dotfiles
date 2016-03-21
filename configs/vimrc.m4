@@ -34,6 +34,7 @@ Plugin 'jez/vim-ispc.git'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 " configure jedi
