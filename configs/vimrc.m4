@@ -145,6 +145,9 @@ au FileType c,cpp setlocal sw=2 ts=2 cinoptions=g0,i2
 au FileType tex let b:surround_109 = "\\(\r\\)"
 au FileType tex let b:surround_77 = "\\[\r\\]"
 
+" recognise '#. ' lists for pandoc markdown
+au FileType markdown set flp+=\\\\|^#.\\s\\+
+
 " Enable backups and persistent undo.
 set backup
 set undofile
