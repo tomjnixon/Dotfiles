@@ -118,6 +118,9 @@ map <Leader>xp ggO#!/usr/bin/env python2<esc>\x
 map <Leader>xb ggO#!/bin/bash<esc>\x
 map <Leader>w :set wrap linebreak nolist<CR>
 
+" probably my most common typo
+command W w
+
 " Speed up buffer switching
 map <C-k> <C-W>k
 map <C-j> <C-W>j
