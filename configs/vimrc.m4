@@ -1,7 +1,6 @@
 CONFIG_FILE(vim, ~/.vimrc)
 
 GIT_REPO(~/.vim/bundle/Vundle.vim, https://github.com/gmarik/Vundle.vim.git)
-ADD_TO_SCRIPT(vim +PluginUpdate +PluginClean +qall)
 
 set nocompatible
 filetype off

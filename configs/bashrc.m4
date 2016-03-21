@@ -70,3 +70,7 @@ function there() {
 function update_wheels() {
     pip2 wheel -r ~/.pip/wheels.txt
 }
+
+function update_vim() {
+    vim -i NONE +PluginUpdate +PluginClean +qall
+}
