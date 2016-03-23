@@ -24,7 +24,7 @@ jupyter
 seaborn
 pip
 virtualenv
-wheen
+wheel
 tox
 
 CONFIG_FILE(matplotlib, ~/.config/matplotlib/matplotlibrc)
