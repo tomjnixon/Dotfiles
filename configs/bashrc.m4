@@ -36,12 +36,12 @@ END_COMPUTER()
 # virtualenv activation must happen in the shell for it to be able to set up
 # the prompt and deactivate. The desk script just sets up the VIRTUAL_ENV
 # variable, and the actual activation is done by the shell.
-function activate_current_venv() {
+function _activate_current_venv() {
 	if [[ -n "${VIRTUAL_ENV+x}" ]]; then
 		source "$VIRTUAL_ENV/bin/activate"
 	fi
 }
-activate_current_venv
+_activate_current_venv
 
 function get_desk() {
 	i3-msg -t GET_WORKSPACES | \
@@ -64,7 +64,7 @@ function there() {
 	
 	[[ -n "${VIRTUAL_ENV+x}" ]] && deactivate
 	[ -f "$HOME/.i3/desks/$desk" ] && source "$HOME/.i3/desks/$desk"
-	activate_current_venv
+	_activate_current_venv
 }
 
 function update_wheels() {
