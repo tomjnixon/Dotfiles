@@ -74,3 +74,10 @@ function update_wheels() {
 function update_vim() {
     vim -i NONE +PluginUpdate +PluginClean +qall
 }
+
+function activate_venv() {
+    source $1/bin/activate
+}
+
+function venv2() { virtualenv2 "$@" && activate_venv "${@: -1}"; }
+function venv3() { virtualenv3 "$@" && activate_venv "${@: -1}"; }
