@@ -71,6 +71,11 @@ function update_wheels() {
     pip2 wheel -r ~/.pip/wheels.txt
 }
 
+function clean_wheels() {
+    rm -rf ~/.pip/wheelhouse/
+    rm -rf ~/.cache/pip/wheels/
+}
+
 function update_vim() {
     vim -i NONE +PluginUpdate +PluginClean +qall
 }
