@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive.git'
-Plugin 'kien/ctrlp.vim.git'
+Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'nanotech/jellybeans.vim.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'sjl/gundo.vim.git'
