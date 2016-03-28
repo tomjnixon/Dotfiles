@@ -26,6 +26,7 @@ pip
 virtualenv
 wheel
 tox
+sympy
 
 CONFIG_FILE(matplotlib, ~/.config/matplotlib/matplotlibrc)
 backend : TkAgg
