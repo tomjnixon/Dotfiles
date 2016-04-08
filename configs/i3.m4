@@ -203,6 +203,10 @@ bar {
 	status_command i3status
 }
 
+
+exec mkdir -p ~/.supervisor_logs
+exec_always supervisord -c ~/.supervisor
+
 EXECUTABLE_FILE(i3, ~/bin/i3-exec)
 #!/bin/bash
 
