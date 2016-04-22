@@ -46,6 +46,9 @@ let g:jedi#smart_auto_mappings = 0
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let b:SuperTabNoCompleteAfter=['^ *']
 
+" configure clang complete
+let g:clang_complete_copen=1
+
 " configure EasyAlign
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -143,6 +146,7 @@ au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 au FileType c,cpp setlocal sw=2 ts=2 cinoptions=g0,i2
 " recognise doxygen comments
 au FileType c,cpp setlocal comments^=:///
+au FileType c,cpp noremap <buffer> <Leader>c :call g:ClangUpdateQuickFix()<CR>
 
 au FileType tex let b:surround_109 = "\\(\r\\)"
 au FileType tex let b:surround_77 = "\\[\r\\]"
