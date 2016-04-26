@@ -9,8 +9,9 @@ else:
 
 CONFIG_FILE(pip, ~/.pip/pip.conf)
 [global]
-wheel-dir = ~/.pip/wheelhouse
-find-links = ~/.pip/wheelhouse
+ADD_TO_SCRIPT(mkdir -p env(HOME)/.pip/wheelhouse)
+wheel-dir = env(HOME)/.pip/wheelhouse
+find-links = env(HOME)/.pip/wheelhouse
 
 CONFIG_FILE(wheels, ~/.pip/wheels.txt)
 numpy
