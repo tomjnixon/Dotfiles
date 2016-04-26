@@ -1,12 +1,6 @@
 CONFIG_FILE(x, ~/.xinitrc)
 
 source /etc/X11/xinit/xinitrc.d/*
-
-xrdb ~/.Xdefaults
-xrdb -merge ~/.Xjellybeans
-
-setup_keyboard
-
 while true; do
         exec dbus-launch i3
         xmessage 'Restart the Window Manager?' \
@@ -65,8 +59,11 @@ CONFIG_FILE(x, ~/.Xmodmap)
 clear Lock
 keycode 0x42 = Escape
 
-EXECUTABLE_FILE(x, ~/bin/setup_keyboard)
+EXECUTABLE_FILE(x, ~/bin/setup_x)
 #!/bin/bash
+xrdb ~/.Xdefaults
+xrdb -merge ~/.Xjellybeans
+
 xset r rate 200 25 &
 setxkbmap gb
 xmodmap ~/.Xmodmap

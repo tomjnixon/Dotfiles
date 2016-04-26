@@ -18,7 +18,7 @@ mode "program" {
     ADD_PROGRAM(Shift+T, xinput --disable "SynPS/2 Synaptics TouchPad")
     ADD_PROGRAM(v, gvim)
     ADD_PROGRAM(x, i3lock -c 000000)
-    ADD_PROGRAM(k, setup_keyboard)
+    ADD_PROGRAM(k, setup_x)
     
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -206,6 +206,7 @@ bar {
 
 exec mkdir -p ~/.supervisor_logs
 exec_always supervisord -c ~/.supervisor
+exec_always setup_x
 
 EXECUTABLE_FILE(i3, ~/bin/i3-exec)
 #!/bin/bash
