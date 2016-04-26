@@ -44,3 +44,6 @@ define(CONFIG_FILE,
 	`ADD_TO_SCRIPT(config_file NEXT_ID $1 $2)')dnl
 ifelse(NEXT_ID, OUTPUT_ID, `divert(0)', `divert(-1)')dnl
 INC_NEXT_ID()dnl')
+
+dnl get the value of an environment vaiable
+define(env, `esyscmd(echo -n "`$'$1")')
