@@ -209,6 +209,7 @@ exec_always supervisord -c ~/.supervisor
 exec_always setup_x
 
 CONFIG_FILE(i3status, ~/.i3status.conf)
+define(`FIRST_ETH_NAME', IF_COMPUTER(LAPTOP, enp0s25, eth0))
 
 # i3status configuration file.
 # see "man i3status" for documentation.
@@ -227,11 +228,9 @@ order += "disk /"
 order += "run_watch DHCP"
 order += "run_watch VPN"
 order += "wireless _first_"
+order += "ethernet FIRST_ETH_NAME"
 ON_COMPUTER(WORK_LAPTOP)
-order += "ethernet eth0"
 order += "ethernet eth1"
-ELSE_COMPUTER()
-order += "ethernet _first_"
 END_COMPUTER()
 order += "battery 0"
 order += "load"
@@ -242,23 +241,17 @@ wireless _first_ {
         format_down = "W: down"
 }
 
-ON_COMPUTER(WORK_LAPTOP)
-ethernet eth0 {
+ethernet FIRST_ETH_NAME {
         # if you use %speed, i3status requires root privileges
         format_up = "E0: %ip"
         format_down = "E0: down"
 }
 
+ON_COMPUTER(WORK_LAPTOP)
 ethernet eth1 {
         # if you use %speed, i3status requires root privileges
         format_up = "E1: %ip"
         format_down = "E1: down"
-}
-ELSE_COMPUTER()
-ethernet _first_ {
-        # if you use %speed, i3status requires root privileges
-        format_up = "E: %ip"
-        format_down = "E: down"
 }
 END_COMPUTER()
 
