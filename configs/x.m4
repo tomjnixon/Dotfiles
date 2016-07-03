@@ -20,6 +20,9 @@ urxvt.font: xft:Terminus:antialias=False:pixelsize=7
 xterm*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
 urxvt.fading: false
 xterm*saveLines: 4096
+ON_COMPUTER(UBUNTU)
+xterm*termName: xterm-256color
+END_COMPUTER()
 
 ! allow using shift in xterm to copy/paste to/from the clipboard
 *VT100.Translations: #override \
