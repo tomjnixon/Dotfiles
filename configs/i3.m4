@@ -208,6 +208,89 @@ exec mkdir -p ~/.supervisor_logs
 exec_always supervisord -c ~/.supervisor
 exec_always setup_x
 
+CONFIG_FILE(i3status, ~/.i3status.conf)
+
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "disk /"
+order += "run_watch DHCP"
+order += "run_watch VPN"
+order += "wireless _first_"
+ON_COMPUTER(WORK_LAPTOP)
+order += "ethernet eth0"
+order += "ethernet eth1"
+ELSE_COMPUTER()
+order += "ethernet _first_"
+END_COMPUTER()
+order += "battery 0"
+order += "load"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ON_COMPUTER(WORK_LAPTOP)
+ethernet eth0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E0: %ip"
+        format_down = "E0: down"
+}
+
+ethernet eth1 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E1: %ip"
+        format_down = "E1: down"
+}
+ELSE_COMPUTER()
+ethernet _first_ {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip"
+        format_down = "E: down"
+}
+END_COMPUTER()
+
+battery 0 {
+        format = "%status %percentage %remaining"
+}
+
+run_watch DHCP {
+ON_COMPUTER(UBUNTU)
+        pidfile = "/run/sendsigs.omit.d/network-manager.dhclient-*.pid"
+ELSE_COMPUTER()
+        pidfile = "/var/run/dhclient*.pid"
+END_COMPUTER()
+}
+
+run_watch VPN {
+        pidfile = "/var/run/vpnc/pid"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+load {
+        format = "%1min"
+}
+
+disk "/" {
+        format = "%avail"
+}
+
+
 EXECUTABLE_FILE(i3, ~/bin/i3-exec)
 #!/bin/bash
 
