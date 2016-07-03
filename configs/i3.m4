@@ -9,6 +9,7 @@ bindsym $mod+Shift+upcase($1) move workspace $2')
 ADD_WORKSPACE(i, im)
 ADD_WORKSPACE(e, email)
 ADD_WORKSPACE(m, music)
+ADD_WORKSPACE(n, notes)
 
 mode "program" {
     ADD_PROGRAM(c, chromium)
