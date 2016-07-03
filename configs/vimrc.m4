@@ -51,6 +51,9 @@ let g:pandoc#syntax#conceal#use = 0
 
 " configure clang complete
 let g:clang_complete_copen=1
+ON_COMPUTER(UBUNTU)
+let g:clang_library_path="/usr/lib/llvm-3.8/lib/libclang.so.1"
+END_COMPUTER()
 
 " configure EasyAlign
 xmap ga <Plug>(EasyAlign)
