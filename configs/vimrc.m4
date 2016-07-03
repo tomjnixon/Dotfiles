@@ -18,7 +18,7 @@ Plugin 'sjl/gundo.vim.git'
 Plugin 'mileszs/ack.vim.git'
 Plugin 'vim-scripts/Gist.vim.git'
 Plugin 'junegunn/vim-easy-align.git'
-Plugin 'tpope/vim-markdown.git'
+Plugin 'vim-pandoc/vim-pandoc-syntax.git'
 Plugin 'tpope/vim-repeat.git'
 Plugin 'tpope/vim-unimpaired.git'
 Plugin 'michaeljsmith/vim-indent-object.git'
@@ -45,6 +45,9 @@ let g:jedi#smart_auto_mappings = 0
 " configure supertab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let b:SuperTabNoCompleteAfter=['^ *']
+
+" configure vim-pandoc-syntax
+let g:pandoc#syntax#conceal#use = 0
 
 " configure clang complete
 let g:clang_complete_copen=1
