@@ -194,6 +194,8 @@ else
 		endfor
 	endfunction
 	call InitializeDirectories()
+
+	set directory=$HOME/.vim/swap//
 endif
 
 if filereadable(".vim.custom")
