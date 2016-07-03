@@ -154,39 +154,47 @@ au FileType tex let b:surround_77 = "\\[\r\\]"
 " recognise '#. ' lists for pandoc markdown
 au FileType markdown set flp+=\\\\|^#.\\s\\+
 
-" Enable backups and persistent undo.
-set backup
-set undofile
-set undolevels=1000
-set undoreload=10000
+" allow telling vim to not write any swap/backup/view files.
+if $VIM_NO_WRITE_TMP == 1
+	set noswapfile
+	set nobackup
+	set noundofile
+	set viminfo=
+else
+	" Enable backups and persistent undo.
+	set backup
+	set undofile
+	set undolevels=1000
+	set undoreload=10000
 
-" Load and save view settings.
-au BufWinLeave * silent! mkview
-au BufWinEnter * silent! loadview
-au BufWinLeave * let b:winview = winsaveview()
-au BufWinEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+	" Load and save view settings.
+	au BufWinLeave * silent! mkview
+	au BufWinEnter * silent! loadview
+	au BufWinLeave * let b:winview = winsaveview()
+	au BufWinEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 
-" Make directories for the above settings.
-" Modified from spf13-vim.
-function! InitializeDirectories()
-	let separator = "."
-	let parent = $HOME . "/.vim"
-	let dir_list = {
-				\ 'backup': 'backupdir',
-				\ 'views': 'viewdir',
-				\ 'swap': 'directory',
-				\ 'undo': 'undodir' }
-	
-	for [dirname, settingname] in items(dir_list)
-		let directory = parent . '/' . dirname . "/"
-		if !isdirectory(directory)
-			call mkdir(directory)
-		endif
-		let directory = substitute(directory, " ", "\\\\ ", "")
-		exec "set " . settingname . "=" . directory
-	endfor
-endfunction
-call InitializeDirectories()
+	" Make directories for the above settings.
+	" Modified from spf13-vim.
+	function! InitializeDirectories()
+		let separator = "."
+		let parent = $HOME . "/.vim"
+		let dir_list = {
+					\ 'backup': 'backupdir',
+					\ 'views': 'viewdir',
+					\ 'swap': 'directory',
+					\ 'undo': 'undodir' }
+		
+		for [dirname, settingname] in items(dir_list)
+			let directory = parent . '/' . dirname . "/"
+			if !isdirectory(directory)
+				call mkdir(directory)
+			endif
+			let directory = substitute(directory, " ", "\\\\ ", "")
+			exec "set " . settingname . "=" . directory
+		endfor
+	endfunction
+	call InitializeDirectories()
+endif
 
 if filereadable(".vim.custom")
     so .vim.custom

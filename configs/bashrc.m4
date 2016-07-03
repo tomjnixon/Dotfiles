@@ -88,8 +88,7 @@ function venv2() { virtualenv2 "$@" && activate_venv "${@: -1}"; }
 function venv3() { virtualenv3 "$@" && activate_venv "${@: -1}"; }
 
 function pass() {
-    # vim should not be used for this, as with my configuration it writes
-    # temporary/swap/backup files centrally, thus leaking passwords.
-    EDITOR=vi /usr/bin/pass "$@"
+    # tell vim not to write files that might leak the password
+    VIM_NO_WRITE_TMP=1 /usr/bin/pass "$@"
 }
 [ -f /usr/share/bash-completion/completions/pass ] && source /usr/share/bash-completion/completions/pass
