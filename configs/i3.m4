@@ -21,6 +21,8 @@ mode "program" {
     ADD_PROGRAM(x, i3lock -c 000000)
     ADD_PROGRAM(k, setup_x)
     ADD_PROGRAM(o, xset dpms force off)
+    ADD_PROGRAM(p, passmenu --type)
+    ADD_PROGRAM(Shift+P, passmenu)
     
     bindsym Return mode "default"
     bindsym Escape mode "default"
