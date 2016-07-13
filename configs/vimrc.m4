@@ -73,6 +73,11 @@ let g:table_mode_sort_map = '<Leader>as'
 let g:table_mode_corner_corner="+"
 let g:table_mode_header_fillchar="="
 
+" Configure flake8
+au FileType python noremap <buffer> <Leader>c :call Flake8()<CR>
+au FileType python noremap <buffer> <Leader>C :call flake8#Flake8UnplaceMarkers()<CR>
+let g:flake8_show_in_gutter=1
+
 set mouse=a
 
 " Whitespace
