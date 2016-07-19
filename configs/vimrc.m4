@@ -155,8 +155,6 @@ let g:loaded_AlignMapsPlugin = 1
 au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 
 au FileType c,cpp setlocal sw=2 ts=2 cinoptions=g0,i2
-" recognise doxygen comments
-au FileType c,cpp setlocal comments^=:///
 au FileType c,cpp noremap <buffer> <Leader>c :call g:ClangUpdateQuickFix()<CR>
 
 au FileType tex let b:surround_109 = "\\(\r\\)"
@@ -212,3 +210,10 @@ endif
 if filereadable(".vim.custom")
     so .vim.custom
 endif
+
+
+CONFIG_FILE(vim, ~/.vim/after/ftplugin/c.vim)
+" recognise doxygen comments
+" ideally this would just be an autocommand, but on older vims (I think) this
+" is overriden by the builtin ftplugin D:
+setlocal comments^=:///
