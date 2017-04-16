@@ -163,6 +163,8 @@ au FileType tex let b:surround_77 = "\\[\r\\]"
 " recognise '#. ' lists for pandoc markdown
 au FileType markdown set flp+=\\\\|^#.\\s\\+
 
+au Filetype verilog let b:verilog_indent_modules = 1
+
 " allow telling vim to not write any swap/backup/view files.
 if $VIM_NO_WRITE_TMP == 1
 	set noswapfile
