@@ -28,6 +28,12 @@ virtualenv
 wheel
 tox
 sympy
+scikit-learn
+requests
+flake8
+ansible
+fabric
+git+http://github.com/tomjnixon/ssh-key.git
 
 CONFIG_FILE(matplotlib, ~/.config/matplotlib/matplotlibrc)
 backend : TkAgg
