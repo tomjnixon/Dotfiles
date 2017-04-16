@@ -1,4 +1,4 @@
-CONFIG_FILE(ssh, ~/.ssh/config)
+CONFIG_FILE(ssh, ~/.ssh/config.head)
 
 # Make SSH *quick*.
 ControlMaster auto
