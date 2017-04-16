@@ -230,7 +230,7 @@ general {
 
 order += "disk /"
 order += "run_watch DHCP"
-order += "run_watch VPN"
+order += "ethernet tun0"
 order += "wireless _first_"
 order += "ethernet FIRST_ETH_NAME"
 ON_COMPUTER(WORK_LAPTOP)
@@ -271,8 +271,9 @@ ELSE_COMPUTER()
 END_COMPUTER()
 }
 
-run_watch VPN {
-        pidfile = "/var/run/vpnc/pid"
+ethernet tun0 {
+        format_up = "VPN: %ip"
+        format_down = "VPN: down"
 }
 
 tztime local {
