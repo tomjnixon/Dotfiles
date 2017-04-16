@@ -34,5 +34,16 @@ command=mpdscribble -D --conf .mpdscribble
 
 [program:redshift]
 command=redshift  -l 53.3656:-2.2280 -t 6500:3700
+
+[program:xss-lock]
+command=xss-lock
+    -n "notify-send -t 5000 -u low 'going to sleep'"
+    -- i3lock -n -e -c 000000
 END_COMPUTER()
 
+ON_COMPUTER(WORK_LAPTOP)
+[program:xautolock]
+command=xautolock -detectsleep
+    -locker "i3lock -n -c 000000"
+    -notify 5 -notifier "notify-send -t 5000 -u low 'going to sleep'"
+END_COMPUTER()
