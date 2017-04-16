@@ -36,6 +36,8 @@ Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'nvie/vim-flake8'
+Plugin 'kana/vim-operator-user'
+Plugin 'rhysd/vim-clang-format'
 
 call vundle#end()
 " configure jedi
@@ -52,8 +54,11 @@ let g:pandoc#syntax#conceal#use = 0
 
 " configure clang complete
 let g:clang_complete_copen=1
+
+" configure odd clang naming on ubuntu
 ON_COMPUTER(UBUNTU)
 let g:clang_library_path="/usr/lib/llvm-3.8/lib/libclang.so.1"
+let g:clang_format#command = "clang-format-3.9"
 END_COMPUTER()
 
 " configure EasyAlign
@@ -157,6 +162,7 @@ au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 
 au FileType c,cpp setlocal sw=2 ts=2 cinoptions=g0,i2
 au FileType c,cpp noremap <buffer> <Leader>c :call g:ClangUpdateQuickFix()<CR>
+autocmd FileType c,cpp map <buffer><Leader>= <Plug>(operator-clang-format)<CR>
 
 au FileType tex let b:surround_109 = "\\(\r\\)"
 au FileType tex let b:surround_77 = "\\[\r\\]"
