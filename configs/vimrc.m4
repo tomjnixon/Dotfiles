@@ -84,6 +84,11 @@ au FileType python noremap <buffer> <Leader>c :call Flake8()<CR>
 au FileType python noremap <buffer> <Leader>C :call flake8#Flake8UnplaceMarkers()<CR>
 let g:flake8_show_in_gutter=1
 
+" Configure ack.vim to work with ag
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+
 set mouse=a
 
 " Whitespace
