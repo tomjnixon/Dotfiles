@@ -225,7 +225,7 @@ define(`FIRST_ETH_NAME', IF_COMPUTER(LAPTOP, enp0s25, eth0))
 
 general {
         colors = true
-        interval = 5
+        interval = 2
 }
 
 order += "disk /"
