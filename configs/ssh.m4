@@ -22,6 +22,6 @@ PRINT_ARGS(shift($@))')
 
 define(`ALIAS', `HOST($1, Hostname $2)')
 
-sinclude(ssh_priv.inc.m4)
+sinclude(../configs_priv/ssh.m4)
 
 ADD_TO_SCRIPT(ssh-key config)
