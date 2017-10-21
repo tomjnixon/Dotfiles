@@ -170,6 +170,7 @@ au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 au FileType c,cpp setlocal sw=2 ts=2 cinoptions=g0,i2
 au FileType c,cpp noremap <buffer> <Leader>c :call g:ClangUpdateQuickFix()<CR>
 autocmd FileType c,cpp map <buffer><Leader>= <Plug>(operator-clang-format)<CR>
+autocmd FileType c,cpp setlocal commentstring=//\ %s
 
 au FileType tex let b:surround_109 = "\\(\r\\)"
 au FileType tex let b:surround_77 = "\\[\r\\]"
