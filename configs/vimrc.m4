@@ -100,6 +100,7 @@ set tabstop=4
 set spelllang=en_gb
 
 " Looks
+set number
 set relativenumber
 set guifont=Terminus\ 8
 set guioptions-=T
