@@ -16,8 +16,36 @@ alias pbin="curl -F 'sprunge=<-' http://sprunge.us"
 alias ls='ls --color=auto'
 alias no="yes n"
 alias xterm=uxterm
-alias g=git
 alias supervisorctl_cfg="supervisorctl -c ~/.supervisor"
+
+alias g=git
+
+alias gs="git status"
+
+alias gc="git commit"
+alias gca="git commit --amend"
+
+function gcm(){ git commit -m "$*"; }
+function gcam(){ git commit --amend -m "$*"; }
+
+alias gco="git checkout"
+
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gds="git diff --stat"
+
+alias gl="git log"
+
+alias ga="git add"
+alias gap="git add -p"
+
+alias gr="git reset"
+alias grh="git reset --hard"
+
+alias gf="git fetch"
+
+alias gp="git push"
+alias gpf="git push --force-with-lease"
 
 # rerun the last command with the last argument moved to the second, and update
 # the history; used to correct a common mistake with 'find' command lines.
