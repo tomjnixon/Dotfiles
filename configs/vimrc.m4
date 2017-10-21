@@ -147,7 +147,7 @@ map <Leader>w :set wrap linebreak nolist<CR>
 map <Leader>mk :call mkdir(expand('%:h'), 'p')<CR>
 
 " probably my most common typo
-command W w
+command! W w
 
 " Speed up buffer switching
 map <C-k> <C-W>k
