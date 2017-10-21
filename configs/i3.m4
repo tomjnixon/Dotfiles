@@ -241,7 +241,7 @@ order += "load"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = "W: (%quality at %essid, %bitrate / %frequency) %ip"
         format_down = "W: down"
 }
 
