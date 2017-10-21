@@ -40,7 +40,10 @@ alias ga="git add"
 alias gap="git add -p"
 
 alias gr="git reset"
+alias grp="git reset --patch"
 alias grh="git reset --hard"
+
+alias gre="git rebase"
 
 alias gf="git fetch"
 
