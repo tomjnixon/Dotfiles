@@ -11,7 +11,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive.git'
-Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'nanotech/jellybeans.vim.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'sjl/gundo.vim.git'
@@ -38,6 +37,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'nvie/vim-flake8'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 " configure jedi
@@ -118,18 +118,13 @@ set smartcase
 
 set wildignore+=*.so,*.swp,*~
 set wildmode=longest,list " readline sytle completion
-let g:ctrlp_dotfiles = 0
-let g:ctrlp_user_command = {
-	\ 'types': {
-		\ 1: ['.git/', 'cd %s && git ls-files -c -o --exclude-standard'],
-	\ }
-	\ }
 
 
 map <Leader>sv :so $MYVIMRC<CR>
 map <Leader>u :GundoToggle<CR>
-map <Leader>t :CtrlP<CR>
-map <Leader>b :CtrlPMRUFiles<CR>
+map <Leader>t :GFiles<CR>
+map <Leader>T :Files<CR>
+map <Leader>b :Buffers<CR>
 map <Leader>h :noh<CR>
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>gd :Gdiff<CR>
