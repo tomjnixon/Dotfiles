@@ -86,7 +86,7 @@ let g:flake8_show_in_gutter=1
 
 " Configure ack.vim to work with ag
 if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column'
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 set mouse=a
