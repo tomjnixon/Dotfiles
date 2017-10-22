@@ -224,6 +224,10 @@ else
 	set directory=$HOME/.vim/swap//
 endif
 
+" in git edit messages, start at line 0 and turn on spell checking
+au BufWinEnter COMMIT_EDITMSG call cursor(1, 1)
+au BufWinEnter COMMIT_EDITMSG set spell
+
 if filereadable(".vim.custom")
     so .vim.custom
 endif
