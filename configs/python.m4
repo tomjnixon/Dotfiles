@@ -33,6 +33,9 @@ requests
 flake8
 ansible
 fabric
+networkx
+ipython
+cvxpy
 git+http://github.com/tomjnixon/ssh-key.git
 
 CONFIG_FILE(matplotlib, ~/.config/matplotlib/matplotlibrc)
