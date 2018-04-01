@@ -111,7 +111,7 @@ set spelllang=en_gb
 " Looks
 set number
 set relativenumber
-set guifont=Terminus\ 8
+set guifont=IF_COMPUTER(UBUNTU, Terminus\ 8, xos4\ Terminus\ 8)
 set guioptions-=T
 set guioptions-=m
 set guioptions-=e " GTK tabs are less functional and take up more room.
