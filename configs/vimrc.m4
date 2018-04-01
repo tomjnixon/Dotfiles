@@ -57,6 +57,9 @@ let b:SuperTabNoCompleteAfter=['^ *']
 
 " configure vim-pandoc-syntax
 let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#modules#disabled = ["folding"]
+let g:tex_conceal = ""
+set conceallevel=0
 
 " configure clang complete
 let g:clang_complete_copen=1
