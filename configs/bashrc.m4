@@ -129,11 +129,11 @@ function there() {
 }
 
 function update_wheels() {
-    pip2 wheel -r ~/.pip/wheels.txt
+    pip3 wheel -r ~/.pip/wheels.txt
 }
 
 function update_python() {
-    pip2 install --upgrade --user -r ~/.pip/wheels.txt
+    pip3 install --upgrade --user -r ~/.pip/wheels.txt
 }
 
 function clean_wheels() {
