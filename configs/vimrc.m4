@@ -100,6 +100,11 @@ endif
 
 set mouse=a
 
+" hack from
+" https://vi.stackexchange.com/questions/13971/vim-pasting-yank-register-when-opening-a-new-file
+" doesn't currently seem to be required
+" set t_RS=
+
 " Whitespace
 set expandtab
 set list
