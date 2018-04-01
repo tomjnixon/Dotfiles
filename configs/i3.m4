@@ -14,7 +14,7 @@ ADD_WORKSPACE(n, notes)
 mode "program" {
     ADD_PROGRAM(c, chromium)
     ADD_PROGRAM(a, ario)
-    ADD_PROGRAM(f, firefox)
+    ADD_PROGRAM(f, IF_COMPUTER(LAPTOP, firefox-developer-edition, firefox))
     ADD_PROGRAM(t, xinput --enable "SynPS/2 Synaptics TouchPad")
     ADD_PROGRAM(Shift+T, xinput --disable "SynPS/2 Synaptics TouchPad")
     ADD_PROGRAM(v, gvim)
