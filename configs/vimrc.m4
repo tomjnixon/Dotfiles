@@ -39,6 +39,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'junegunn/fzf.vim'
+Plugin 'chr4/nginx.vim'
 
 call vundle#end()
 " configure jedi
