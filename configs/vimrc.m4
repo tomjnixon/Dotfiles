@@ -149,6 +149,8 @@ map <Leader>xp ggO#!/usr/bin/env python2<esc>\x
 map <Leader>xb ggO#!/bin/bash<esc>\x
 map <Leader>w :set wrap linebreak nolist<CR>
 map <Leader>mk :call mkdir(expand('%:h'), 'p')<CR>
+nmap <Leader>fq :%s/[„“”]/"/g<CR>
+vmap <Leader>fq :s/[„“”]/"/g<CR>
 
 " probably my most common typo
 command! W w
