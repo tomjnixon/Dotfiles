@@ -32,6 +32,7 @@ function gcam(){ git commit --amend -m "$*"; }
 
 alias gco="git checkout"
 alias gcop="git checkout --patch"
+alias gcob="git checkout -b"
 
 alias gd="git diff"
 alias gdc="git diff --cached"
