@@ -23,6 +23,7 @@ mode "program" {
     ADD_PROGRAM(o, xset dpms force off)
     ADD_PROGRAM(p, passmenu --type)
     ADD_PROGRAM(Shift+P, passmenu)
+    ADD_PROGRAM(r, reference_menu)
     
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -303,3 +304,12 @@ desk=$(
 [ -f "$HOME/.i3/desks/$desk" ] && source "$HOME/.i3/desks/$desk"
 
 exec "$@"
+
+EXECUTABLE_FILE(i3, ~/bin/reference_menu)
+#!/bin/bash
+
+base="$HOME/Documents/reference"
+
+doc=$(find "$base" -type f -printf '%P\n' | dmenu -i)
+
+[[ -n "$doc" ]] && xdg-open "$base/$doc"
