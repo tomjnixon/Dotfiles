@@ -149,8 +149,9 @@ function activate_venv() {
     source $1/bin/activate
 }
 
-function venv2() { virtualenv2 "$@" && activate_venv "${@: -1}"; }
-function venv3() { virtualenv3 "$@" && activate_venv "${@: -1}"; }
+function venv2() { virtualenv --python=python2 "$@" && activate_venv "${@: -1}"; }
+function venv3() { virtualenv --python=python3.6 "$@" && activate_venv "${@: -1}"; }
+function venv() { venv3; }
 
 function pass() {
     # tell vim not to write files that might leak the password
