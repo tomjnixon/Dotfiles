@@ -54,6 +54,10 @@ alias gf="git fetch"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 
+alias gss="git stash save"
+alias gsa="git stash apply"
+alias gsl="git stash list"
+
 # rerun the last command with the last argument moved to the second, and update
 # the history; used to correct a common mistake with 'find' command lines.
 function fff(){ args=$(history -p '!:0 !$ !:1-'); history -s $args; $args; }
