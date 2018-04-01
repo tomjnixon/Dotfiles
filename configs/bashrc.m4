@@ -22,6 +22,8 @@ alias g=git
 
 alias gs="git status"
 
+alias gsh="git show"
+
 alias gc="git commit"
 alias gca="git commit --amend"
 
