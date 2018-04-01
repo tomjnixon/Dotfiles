@@ -68,6 +68,14 @@ function f() {
 # the history; used to correct a common mistake with 'find' command lines.
 function fff(){ args=$(history -p '!:0 !$ !:1-'); history -s $args; $args; }
 
+# Run ssh with the given args after removing the fingerprint from known_hosts.
+# The determination of the host argument is not exact.
+function fssh(){
+    local OPTIND
+    while getopts p:o:i: arg; do true; done
+    ssh-keygen -R ${!OPTIND#*@} && exec ssh "$@"
+}
+
 export PATH=node_modules/.bin/:$PATH
 export PATH=$HOME/.rvm/bin/:$PATH
 export PATH=$HOME/.cabal/bin/:$PATH
