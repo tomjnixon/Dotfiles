@@ -73,7 +73,7 @@ function fff(){ args=$(history -p '!:0 !$ !:1-'); history -s $args; $args; }
 function fssh(){
     local OPTIND
     while getopts p:o:i: arg; do true; done
-    ssh-keygen -R ${!OPTIND#*@} && exec ssh "$@"
+    ssh-keygen -R ${!OPTIND#*@} && ssh "$@"
 }
 
 export PATH=node_modules/.bin/:$PATH
