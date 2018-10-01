@@ -76,6 +76,26 @@ function fssh(){
     ssh-keygen -R ${!OPTIND#*@} && ssh "$@"
 }
 
+function mcd() {
+    mkdir -p $1 && cd $1;
+}
+
+function maudacity() {
+    local tmpfile
+    tmpfile="$(mktemp audacity_XXXXXXXX.lof)"
+    for fname in "$@"; do
+        printf 'file "%s"\n' "$(readlink -f "$fname")"
+    done > "$tmpfile"
+    audacity "$tmpfile"
+    rm "$tmpfile"
+}
+
+function qr() {
+    qrencode -t ANSI256 "$@"
+}
+
+alias t="xterm &"
+
 export PATH=node_modules/.bin/:$PATH
 export PATH=$HOME/.rvm/bin/:$PATH
 export PATH=$HOME/.cabal/bin/:$PATH
