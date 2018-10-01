@@ -13,7 +13,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'nanotech/jellybeans.vim.git'
 Plugin 'tpope/vim-surround.git'
-Plugin 'sjl/gundo.vim.git'
+Plugin 'mbbill/undotree.git'
 Plugin 'mileszs/ack.vim.git'
 Plugin 'vim-scripts/Gist.vim.git'
 Plugin 'junegunn/vim-easy-align.git'
@@ -136,7 +136,7 @@ set wildmode=longest,list " readline sytle completion
 
 
 map <Leader>sv :so $MYVIMRC<CR>
-map <Leader>u :GundoToggle<CR>
+map <Leader>u :UndotreeToggle<CR>
 map <Leader>t :GFiles<CR>
 map <Leader>T :Files<CR>
 map <Leader>b :Buffers<CR>
