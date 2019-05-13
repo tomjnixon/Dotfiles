@@ -24,6 +24,7 @@ mode "program" {
     ADD_PROGRAM(p, passmenu)
     ADD_PROGRAM(Shift+P, passmenu --type)
     ADD_PROGRAM(r, reference_menu)
+    ADD_PROGRAM(s, screen_menu)
     
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -313,3 +314,12 @@ base="$HOME/Documents/reference"
 doc=$(find "$base" -type f -printf '%P\n' | dmenu -i)
 
 [[ -n "$doc" ]] && xdg-open "$base/$doc"
+
+EXECUTABLE_FILE(i3, ~/bin/screen_menu)
+#!/bin/bash
+
+base="$HOME/.screenlayout/"
+
+doc=$(find "$base" -type f -printf '%P\n' | sort | dmenu -i)
+
+[[ -n "$doc" ]] && "$base/$doc"
