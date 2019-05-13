@@ -8,7 +8,7 @@ export HISTSIZE=10000
 export HISTCONTROL=ignorespace
 export PYTHONSTARTUP=~/.pythonrc
 export EDITOR=vim
-export BROWSER=firefox
+export BROWSER=firefox-developer-edition
 export AWT_TOOLKIT=webscarab
 export MPD_HOST="/home/tom/.mpd/socket"
 
