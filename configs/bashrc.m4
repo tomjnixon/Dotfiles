@@ -43,6 +43,18 @@ alias gl="git log"
 alias ga="git add"
 alias gap="git add -p"
 
+function gapf() {
+    local files;
+    files="$(gs --porcelain | grep '^.M' | cut -c 4- | fzf -m)"
+    [ $? -eq 0 ] && git add -p $files
+}
+
+function gaf() {
+    local files;
+    files="$(gs --porcelain | grep '^.[M?U]' | cut -c 4- | fzf -m)"
+    [ $? -eq 0 ] && git add $files
+}
+
 alias gr="git reset"
 alias grp="git reset --patch"
 alias grh="git reset --hard"
