@@ -197,6 +197,10 @@ au FileType markdown set flp+=\\\\|^#.\\s\\+
 
 au Filetype verilog let b:verilog_indent_modules = 1
 
+au Filetype mail set spell
+au Filetype rst set spell
+au Filetype markdown set spell
+
 " allow telling vim to not write any swap/backup/view files.
 if $VIM_NO_WRITE_TMP == 1
 	set noswapfile
