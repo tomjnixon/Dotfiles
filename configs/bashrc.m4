@@ -62,6 +62,8 @@ function f() {
     local file;
     file="$(fzf)"
     [ $? -eq 0 ] && "$@" "$file"
+    history -s f "$@"
+    history -s "$@" "$file"
 }
 
 # rerun the last command with the last argument moved to the second, and update
