@@ -45,6 +45,7 @@ Plugin 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
             \ 'do': 'bash install.sh',
             \ }
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 " configure jedi
@@ -97,6 +98,10 @@ let g:LanguageClient_diagnosticsDisplay = {
             \         "virtualTexthl": "Todo",
             \     },
             \ }
+
+" configure gitgutter
+let g:gitgutter_enabled = 0
+set updatetime=200
 
 " configure EasyAlign
 xmap ga <Plug>(EasyAlign)
