@@ -42,6 +42,7 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'junegunn/fzf.vim'
 Plugin 'chr4/nginx.vim'
 Plugin 'mesonbuild/meson', {'rtp': 'data/syntax-highlighting/vim/'}
+Plugin '907th/vim-auto-save'
 
 call vundle#end()
 " configure jedi
@@ -95,6 +96,12 @@ let g:flake8_show_in_gutter=1
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" autosave notes
+augroup notes
+    autocmd!
+    autocmd BufNewFile,BufRead ~/notes/* let b:auto_save = 1
+augroup END
 
 set mouse=a
 
