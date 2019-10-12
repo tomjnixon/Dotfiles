@@ -41,6 +41,7 @@ Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'junegunn/fzf.vim'
 Plugin 'chr4/nginx.vim'
+Plugin 'mesonbuild/meson', {'rtp': 'data/syntax-highlighting/vim/'}
 
 ON_COMPUTER(WORK_LAPTOP)
 set rtp+=~/dev/build/fzf/
