@@ -73,6 +73,8 @@ xmodmap ~/.Xmodmap
 
 xset s 600 5
 
+xset b off
+
 for id in $(xinput --list | grep "TrackPoint" | grep -Po 'id=\K[0-9]+'); do
         xinput set-int-prop $id "Evdev Wheel Emulation" 8 1
         xinput set-int-prop $id "Evdev Wheel Emulation Button" 8 2
