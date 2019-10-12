@@ -28,7 +28,6 @@ Plugin 'danro/rename.vim.git'
 Plugin 'Lokaltog/vim-easymotion.git'
 Plugin 'vim-scripts/n3.vim.git'
 Plugin 'davidhalter/jedi-vim.git'
-Plugin 'Rip-Rip/clang_complete.git'
 Plugin 'ervandew/supertab.git'
 Plugin 'vim-scripts/openscad.vim'
 Plugin 'jez/vim-ispc.git'
@@ -38,11 +37,14 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'nvie/vim-flake8'
 Plugin 'ambv/black'
 Plugin 'kana/vim-operator-user'
-Plugin 'rhysd/vim-clang-format'
 Plugin 'junegunn/fzf.vim'
 Plugin 'chr4/nginx.vim'
 Plugin 'mesonbuild/meson', {'rtp': 'data/syntax-highlighting/vim/'}
 Plugin '907th/vim-auto-save'
+Plugin 'autozimu/LanguageClient-neovim', {
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
 
 call vundle#end()
 " configure jedi
@@ -60,14 +62,41 @@ let g:pandoc#modules#disabled = ["folding"]
 let g:tex_conceal = ""
 set conceallevel=0
 
-" configure clang complete
-let g:clang_complete_copen=1
+" configure LanguageClent
+let g:LanguageClient_serverCommands = {
+    \ 'cpp': ['clangd'],
+    \ }
 
-" configure odd clang naming on ubuntu
-ON_COMPUTER(UBUNTU)
-let g:clang_library_path="/usr/lib/llvm-3.8/lib/libclang.so.1"
-let g:clang_format#command = "clang-format-3.9"
-END_COMPUTER()
+let g:LanguageClient_diagnosticsDisplay = {
+            \     1: {
+            \         "name": "Error",
+            \         "texthl": "ALEError",
+            \         "signText": "e",
+            \         "signTexthl": "ALEErrorSign",
+            \         "virtualTexthl": "Error",
+            \     },
+            \     2: {
+            \         "name": "Warning",
+            \         "texthl": "ALEWarning",
+            \         "signText": "w",
+            \         "signTexthl": "ALEWarningSign",
+            \         "virtualTexthl": "Todo",
+            \     },
+            \     3: {
+            \         "name": "Information",
+            \         "texthl": "ALEInfo",
+            \         "signText": "i",
+            \         "signTexthl": "ALEInfoSign",
+            \         "virtualTexthl": "Todo",
+            \     },
+            \     4: {
+            \         "name": "Hint",
+            \         "texthl": "ALEInfo",
+            \         "signText": "h",
+            \         "signTexthl": "ALEInfoSign",
+            \         "virtualTexthl": "Todo",
+            \     },
+            \ }
 
 " configure EasyAlign
 xmap ga <Plug>(EasyAlign)
@@ -185,9 +214,19 @@ let g:loaded_AlignMapsPlugin = 1
 au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 
 au FileType c,cpp setlocal sw=2 ts=2 cinoptions=g0,i2
-au FileType c,cpp noremap <buffer> <Leader>c :call g:ClangUpdateQuickFix()<CR>
-autocmd FileType c,cpp map <buffer><Leader>= <Plug>(operator-clang-format)<CR>
 autocmd FileType c,cpp setlocal commentstring=//\ %s
+
+function LC_maps()
+    if has_key(g:LanguageClient_serverCommands, &filetype)
+        nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
+        nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
+        nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+        set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+        map <buffer><Leader>= :call LanguageClient#textDocument_formatting_sync()<CR>
+    endif
+endfunction
+
+autocmd FileType * call LC_maps()
 
 au FileType tex let b:surround_109 = "\\(\r\\)"
 au FileType tex let b:surround_77 = "\\[\r\\]"
