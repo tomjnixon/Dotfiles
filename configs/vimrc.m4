@@ -43,10 +43,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'chr4/nginx.vim'
 Plugin 'mesonbuild/meson', {'rtp': 'data/syntax-highlighting/vim/'}
 
-ON_COMPUTER(WORK_LAPTOP)
-set rtp+=~/dev/build/fzf/
-END_COMPUTER(WORK_LAPTOP)
-
 call vundle#end()
 " configure jedi
 let g:jedi#popup_on_dot = 0
