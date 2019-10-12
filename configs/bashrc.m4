@@ -104,9 +104,6 @@ export PATH=$HOME/.cabal/bin/:$PATH
 export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/bin/:$PATH
 
-export GOPATH=$HOME/dev/build/go/
-export PATH=$HOME/dev/build/go/bin/:$PATH
-
 sinclude(../configs_priv/bash.m4)
 
 ON_COMPUTER(LAPTOP)
