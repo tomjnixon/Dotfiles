@@ -28,6 +28,9 @@ command=batt_mon
 command=xss-lock
     -n "notify-send -t 5000 -u low 'going to sleep'"
     -- i3lock -n -e -c 000000
+
+[program:redshift]
+command=redshift  -l 53.3656:-2.2280 -t 6500:3700
 END_COMPUTER()
 
 ON_COMPUTER(LAPTOP)
@@ -36,7 +39,4 @@ command=mpd --no-daemon
 
 [program:mpdscribble]
 command=mpdscribble -D --conf .mpdscribble
-
-[program:redshift]
-command=redshift  -l 53.3656:-2.2280 -t 6500:3700
 END_COMPUTER()
