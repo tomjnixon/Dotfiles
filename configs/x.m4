@@ -68,7 +68,7 @@ xrdb ~/.Xdefaults
 xrdb -merge ~/.Xjellybeans
 
 xset r rate 200 25 &
-setxkbmap gb
+setxkbmap IF_COMPUTER(MPC, us, gb)
 xmodmap ~/.Xmodmap
 
 xset s 600 5
