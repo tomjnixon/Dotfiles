@@ -84,4 +84,13 @@ ON_COMPUTER(WORK_LAPTOP)
 END_COMPUTER()
 done
 
+ON_COMPUTER(LAPTOPS && !MPC)
 xinput --disable "SynPS/2 Synaptics TouchPad"
+END_COMPUTER()
+
+ON_COMPUTER(MPC)
+trackpad="pointer:AMR-4630-XXX-0- 0-1023 USB KEYBOARD Mouse"
+xinput --set-prop "$trackpad" "libinput Middle Emulation Enabled" 1
+xinput --set-prop "$trackpad" "libinput Button Scrolling Button" 2
+xinput --set-prop "$trackpad" "libinput Scroll Method Enabled" 0 0 1
+END_COMPUTER()
