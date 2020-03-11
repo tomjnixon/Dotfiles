@@ -13,7 +13,7 @@ ADD_WORKSPACE(n, notes)
 
 mode "program" {
     ADD_PROGRAM(c, chromium)
-    ADD_PROGRAM(a, ario)
+    ADD_PROGRAM(a, cantata)
     ADD_PROGRAM(f, firefox-developer-edition)
     ADD_PROGRAM(t, xinput --enable "SynPS/2 Synaptics TouchPad")
     ADD_PROGRAM(Shift+T, xinput --disable "SynPS/2 Synaptics TouchPad")
