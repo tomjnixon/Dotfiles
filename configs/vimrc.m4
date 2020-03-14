@@ -176,6 +176,9 @@ set smartcase
 set wildignore+=*.so,*.swp,*~
 set wildmode=longest,list " readline sytle completion
 
+" https://github.com/junegunn/fzf.vim/issues/900
+let &t_TI = ""
+let &t_TE = ""
 
 map <Leader>sv :so $MYVIMRC<CR>
 map <Leader>u :UndotreeToggle<CR>
