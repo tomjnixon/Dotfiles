@@ -46,6 +46,8 @@ Plugin 'autozimu/LanguageClient-neovim', {
             \ 'do': 'bash install.sh',
             \ }
 Plugin 'airblade/vim-gitgutter'
+Plugin 'AndrewRadev/sideways.vim'
+Plugin 'leafOfTree/vim-vue-plugin'
 
 call vundle#end()
 " configure jedi
@@ -202,6 +204,8 @@ map <Leader>w :set wrap linebreak nolist<CR>
 map <Leader>mk :call mkdir(expand('%:h'), 'p')<CR>
 nmap <Leader>fq :%s/[„“”]/"/g<CR>
 vmap <Leader>fq :s/[„“”]/"/g<CR>
+nnoremap g< :SidewaysLeft<cr>
+nnoremap g> :SidewaysRight<cr>
 
 " probably my most common typo
 command! W w
