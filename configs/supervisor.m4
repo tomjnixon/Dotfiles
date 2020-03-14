@@ -15,7 +15,7 @@ file=%(here)s/.supervisor.sock
 [inet_http_server]
 port = 127.0.0.1:9001
 
-sinclude(../configs_priv/supervisor.inc.m4)
+sinclude(priv/supervisor.inc.m4)
 
 ON_COMPUTER(LAPTOPS)
 [program:nm-applet]

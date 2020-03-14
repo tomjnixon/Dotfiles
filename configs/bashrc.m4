@@ -116,7 +116,7 @@ export PATH=$HOME/.cabal/bin/:$PATH
 export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/bin/:$PATH
 
-sinclude(../configs_priv/bash.inc.m4)
+sinclude(priv/bash.inc.m4)
 
 ON_COMPUTER(LAPTOP)
 PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\W\[\e[m\] \[\e[0;32m\]£\[\e[m\] '
