@@ -40,3 +40,5 @@ command=mpd --no-daemon
 [program:mpdscribble]
 command=mpdscribble -D --conf .mpdscribble
 END_COMPUTER()
+
+ADD_TO_SCRIPT(supervisorctl -c ~/.supervisor update)
