@@ -94,3 +94,17 @@ xinput --set-prop "$trackpad" "libinput Middle Emulation Enabled" 1
 xinput --set-prop "$trackpad" "libinput Button Scrolling Button" 2
 xinput --set-prop "$trackpad" "libinput Scroll Method Enabled" 0 0 1
 END_COMPUTER()
+
+ON_COMPUTER(LAPTOP)
+synclient TapButton1=1
+synclient VertScrollDelta=300
+synclient VertScrollDelta=200
+
+synclient MaxSpeed=1
+synclient MinSpeed=1
+
+xinput  --set-prop "SynPS/2 Synaptics TouchPad" "Device Accel Constant Deceleration" 16
+xinput  --set-prop "SynPS/2 Synaptics TouchPad" "Device Accel Adaptive Deceleration" 16
+xinput  --set-prop "SynPS/2 Synaptics TouchPad" "Device Accel Velocity Scaling" 100
+xinput  --set-prop "SynPS/2 Synaptics TouchPad" "Device Accel Profile" 2
+END_COMPUTER()
