@@ -35,6 +35,8 @@ fabric
 networkx
 ipython
 cvxpy
+black
+attrs
 git+http://github.com/tomjnixon/ssh-key.git
 
 CONFIG_FILE(matplotlib, ~/.config/matplotlib/matplotlibrc)
