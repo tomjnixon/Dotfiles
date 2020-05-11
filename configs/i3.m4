@@ -93,6 +93,8 @@ bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+d layout default
 
+bindsym $mod+Shift+S sticky toggle
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle; exec warp_cursor_to_centre
 
