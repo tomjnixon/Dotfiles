@@ -3,7 +3,7 @@ CONFIG_FILE(i3, ~/.i3/config)
 define(ADD_PROGRAM, `bindsym $1 exec i3-exec $2; mode "default"')
 define(upcase, `translit(`$*', `a-z', `A-Z')')
 define(ADD_WORKSPACE,
-`bindsym $mod+$1 workspace $2
+`bindsym $mod+$1 workspace $2; exec warp_cursor_to_centre
 bindsym $mod+Shift+upcase($1) move workspace $2')
 
 ADD_WORKSPACE(i, im)
@@ -56,28 +56,28 @@ bindsym $mod+q kill
 bindsym $mod+Shift+P exec i3-exec dmenu_run
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+h focus left; exec warp_cursor_to_centre
+bindsym $mod+j focus down; exec warp_cursor_to_centre
+bindsym $mod+k focus up; exec warp_cursor_to_centre
+bindsym $mod+l focus right; exec warp_cursor_to_centre
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left focus left; exec warp_cursor_to_centre
+bindsym $mod+Down focus down; exec warp_cursor_to_centre
+bindsym $mod+Up focus up; exec warp_cursor_to_centre
+bindsym $mod+Right focus right; exec warp_cursor_to_centre
 
 # move focused window
-bindsym $mod+Shift+H move left
-bindsym $mod+Shift+J move down
-bindsym $mod+Shift+K move up
-bindsym $mod+Shift+L move right
+bindsym $mod+Shift+H move left; exec warp_cursor_to_centre
+bindsym $mod+Shift+J move down; exec warp_cursor_to_centre
+bindsym $mod+Shift+K move up; exec warp_cursor_to_centre
+bindsym $mod+Shift+L move right; exec warp_cursor_to_centre
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left; exec warp_cursor_to_centre
+bindsym $mod+Shift+Down move down; exec warp_cursor_to_centre
+bindsym $mod+Shift+Up move up; exec warp_cursor_to_centre
+bindsym $mod+Shift+Right move right; exec warp_cursor_to_centre
 
 # split in horizontal orientation
 bindsym $mod+x split h
@@ -86,7 +86,7 @@ bindsym $mod+x split h
 bindsym $mod+y split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $mod+f fullscreen; exec warp_cursor_to_centre
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
@@ -94,10 +94,10 @@ bindsym $mod+t layout tabbed
 bindsym $mod+d layout default
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle; exec warp_cursor_to_centre
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle; exec warp_cursor_to_centre
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -106,16 +106,16 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 1; exec warp_cursor_to_centre
+bindsym $mod+2 workspace 2; exec warp_cursor_to_centre
+bindsym $mod+3 workspace 3; exec warp_cursor_to_centre
+bindsym $mod+4 workspace 4; exec warp_cursor_to_centre
+bindsym $mod+5 workspace 5; exec warp_cursor_to_centre
+bindsym $mod+6 workspace 6; exec warp_cursor_to_centre
+bindsym $mod+7 workspace 7; exec warp_cursor_to_centre
+bindsym $mod+8 workspace 8; exec warp_cursor_to_centre
+bindsym $mod+9 workspace 9; exec warp_cursor_to_centre
+bindsym $mod+0 workspace 10; exec warp_cursor_to_centre
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move workspace 1
@@ -135,7 +135,7 @@ bindsym $mod+Shift+V move workspace to output down
 bindsym $mod+Shift+B move workspace to output up
 
 workspace_auto_back_and_forth yes
-bindsym $mod+Escape workspace back_and_forth
+bindsym $mod+Escape workspace back_and_forth; exec warp_cursor_to_centre
 
 bindsym XF86Launch1 exec xset dpms force off
 
@@ -323,3 +323,16 @@ base="$HOME/.screenlayout/"
 doc=$(find "$base" -type f -printf '%P\n' | sort | dmenu -i)
 
 [[ -n "$doc" ]] && "$base/$doc"
+
+EXECUTABLE_FILE(i3, ~/bin/warp_cursor_to_centre)
+#!/bin/bash
+
+WINDOW=$(xdotool getwindowfocus)
+
+# this brings in variables WIDTH and HEIGHT
+eval $(xdotool getwindowgeometry --shell $WINDOW)
+
+TX=$(expr $WIDTH / 2)
+TY=$(expr $HEIGHT / 2)
+
+xdotool mousemove -window $WINDOW $TX $TY
