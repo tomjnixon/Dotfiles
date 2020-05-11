@@ -192,8 +192,8 @@ function activate_venv() {
     source $1/bin/activate
 }
 
-function venv2() { virtualenv --python=python2 "$@" && activate_venv "${@: -1}"; }
-function venv3() { virtualenv --python=python3 "$@" && activate_venv "${@: -1}"; }
+function venv2() { python2 -m virtualenv "$@" && activate_venv "${@: -1}"; }
+function venv3() { python3 -m venv "$@" && activate_venv "${@: -1}"; }
 function venv() { venv3 "$@"; }
 
 function pass() {
