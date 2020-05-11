@@ -146,13 +146,14 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioStop exec mpc stop
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86AudioLowerVolume exec amixer set Master 5%-; exec amixer set Master unmute
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+; exec amixer set Master unmute
-bindsym Shift+XF86AudioLowerVolume exec amixer set Master 1%-; exec amixer set Master unmute
-bindsym Shift+XF86AudioRaiseVolume exec amixer set Master 1%+; exec amixer set Master unmute
-bindsym $mod+XF86AudioLowerVolume exec amixer set Master 30%; exec amixer set Master unmute
-bindsym $mod+XF86AudioRaiseVolume exec amixer set Master 100%; exec amixer set Master unmute
+define(`AMIXER', `exec amixer -D pulse')
+bindsym XF86AudioMute AMIXER set Master toggle
+bindsym XF86AudioLowerVolume AMIXER set Master 5%-; AMIXER set Master unmute
+bindsym XF86AudioRaiseVolume AMIXER set Master 5%+; AMIXER set Master unmute
+bindsym Shift+XF86AudioLowerVolume AMIXER set Master 1%-; AMIXER set Master unmute
+bindsym Shift+XF86AudioRaiseVolume AMIXER set Master 1%+; AMIXER set Master unmute
+bindsym $mod+XF86AudioLowerVolume AMIXER set Master 30%; AMIXER set Master unmute
+bindsym $mod+XF86AudioRaiseVolume AMIXER set Master 100%; AMIXER set Master unmute
 
 dnl brightness keybindings seem to be built into modern X
 ON_COMPUTER(!LAPTOP)
