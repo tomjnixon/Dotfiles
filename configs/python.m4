@@ -17,7 +17,6 @@ CONFIG_FILE(wheels, ~/.pip/wheels.txt)
 numpy
 scipy
 pandas
-enum34
 pytest
 mock
 matplotlib
