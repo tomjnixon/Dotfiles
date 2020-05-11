@@ -48,8 +48,15 @@ Plugin 'autozimu/LanguageClient-neovim', {
 Plugin 'airblade/vim-gitgutter'
 Plugin 'AndrewRadev/sideways.vim'
 Plugin 'leafOfTree/vim-vue-plugin'
+Plugin 'tomjnixon/wiki.vim'
 
 call vundle#end()
+
+" configure wiki.vim
+let g:wiki_root = "~/wiki"
+let g:wiki_filetypes = ["md"]
+let g:wiki_link_target_type = "md"
+
 " configure jedi
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
