@@ -175,6 +175,9 @@ set guifont=IF_COMPUTER(UBUNTU, Terminus\ 8, Terminus\ Medium\ 8)
 set guioptions-=T
 set guioptions-=m
 set guioptions-=e " GTK tabs are less functional and take up more room.
+set guioptions-=r
+set guicursor+=a:blinkon0
+let g:jellybeans_use_gui_italics = 0
 colorscheme jellybeans
 set showcmd
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
