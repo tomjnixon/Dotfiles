@@ -295,7 +295,7 @@ else
 		for [dirname, settingname] in items(dir_list)
 			let directory = parent . '/' . dirname . "/"
 			if !isdirectory(directory)
-				call mkdir(directory)
+				call mkdir(directory, "p")
 			endif
 			let directory = substitute(directory, " ", "\\\\ ", "")
 			exec "set " . settingname . "=" . directory
