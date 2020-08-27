@@ -1,5 +1,6 @@
 CONFIG_FILE(vim, ~/.vimrc)
 
+ON_COMPUTER(!NIX)
 GIT_REPO(~/.vim/bundle/Vundle.vim, https://github.com/gmarik/Vundle.vim.git)
 
 set nocompatible
@@ -51,6 +52,7 @@ Plugin 'leafOfTree/vim-vue-plugin'
 Plugin 'tomjnixon/wiki.vim'
 
 call vundle#end()
+END_COMPUTER()
 
 " configure wiki.vim
 let g:wiki_root = "~/wiki"
