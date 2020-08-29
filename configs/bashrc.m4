@@ -1,5 +1,6 @@
 CONFIG_FILE(bash, ~/.bashrc)
 
+ON_COMPUTER(!NIX)
 export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 set -o vi
@@ -18,6 +19,7 @@ alias no="yes n"
 alias xterm=uxterm
 alias supervisorctl_cfg="supervisorctl -c ~/.supervisor"
 
+dnl git-related aliases and functions
 alias g=git
 
 alias gs="git status"
@@ -69,6 +71,7 @@ alias gpf="git push --force-with-lease"
 alias gss="git stash save"
 alias gsa="git stash apply"
 alias gsl="git stash list"
+END_COMPUTER()
 
 function f() {
     local file;
@@ -110,11 +113,13 @@ function qr() {
 
 alias t="xterm &"
 
+ON_COMPUTER(!NIX)
 export PATH=node_modules/.bin/:$PATH
 export PATH=$HOME/.rvm/bin/:$PATH
 export PATH=$HOME/.cabal/bin/:$PATH
 export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/bin/:$PATH
+END_COMPUTER()
 
 sinclude(priv/bash.inc.m4)
 
@@ -159,6 +164,7 @@ function there() {
 	_activate_current_venv
 }
 
+ON_COMPUTER(!NIX)
 function update_wheels() {
     pip3 wheel -r ~/.pip/wheels.txt
 }
@@ -175,6 +181,7 @@ function clean_wheels() {
 function update_vim() {
     vim -i NONE +PluginUpdate +PluginClean +qall
 }
+END_COMPUTER()
 
 function activate_venv() {
     source $1/bin/activate
