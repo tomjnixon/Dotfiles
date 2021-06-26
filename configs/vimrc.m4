@@ -193,6 +193,9 @@ set wildmode=longest,list " readline sytle completion
 let &t_TI = ""
 let &t_TE = ""
 
+" don't use a popup window for fzf
+let g:fzf_layout = { 'down': '40%' }
+
 map <Leader>sv :so $MYVIMRC<CR>
 map <Leader>u :UndotreeToggle<CR>
 map <Leader>t :GFiles<CR>
