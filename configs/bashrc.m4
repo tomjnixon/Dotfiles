@@ -83,7 +83,12 @@ function f() {
 
 # rerun the last command with the last argument moved to the second, and update
 # the history; used to correct a common mistake with 'find' command lines.
-function fff(){ args=$(history -p '!:0 !$ !:1-'); history -s $args; $args; }
+function fff(){
+    args=$(history -p '!:0 !$ !:1-');
+    history -s $args;
+    echo $args;
+    eval $args;
+}
 
 # Run ssh with the given args after removing the fingerprint from known_hosts.
 # The determination of the host argument is not exact.
