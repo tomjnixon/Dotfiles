@@ -150,6 +150,7 @@ endif
 augroup notes
     autocmd!
     autocmd BufNewFile,BufRead ~/notes/* let b:auto_save = 1
+    autocmd BufNewFile,BufRead ~/wiki/* let b:auto_save = 1
 augroup END
 
 set mouse=a
