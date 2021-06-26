@@ -50,6 +50,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'AndrewRadev/sideways.vim'
 Plugin 'leafOfTree/vim-vue-plugin'
 Plugin 'tomjnixon/wiki.vim'
+Plugin 'vivien/vim-linux-coding-style'
 
 call vundle#end()
 END_COMPUTER()
@@ -322,3 +323,10 @@ CONFIG_FILE(vim, ~/.vim/after/ftplugin/c.vim)
 " ideally this would just be an autocommand, but on older vims (I think) this
 " is overriden by the builtin ftplugin D:
 setlocal comments^=:///
+
+CONFIG_FILE(vim, ~/.vim/after/plugin/mappings-override.vim)
+" configure vim-linux-coding-style
+" don't enable by default
+augroup linuxsty
+autocmd!
+augroup END
