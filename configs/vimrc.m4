@@ -50,6 +50,8 @@ Plugin 'AndrewRadev/sideways.vim'
 Plugin 'leafOfTree/vim-vue-plugin'
 Plugin 'tomjnixon/wiki.vim'
 Plugin 'vivien/vim-linux-coding-style'
+Plugin 'LnL7/vim-nix'
+Plugin 'tommcdo/vim-exchange'
 
 call vundle#end()
 END_COMPUTER()
