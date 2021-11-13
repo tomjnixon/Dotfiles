@@ -246,7 +246,6 @@ let g:loaded_AlignMapsPlugin = 1
 au BufReadPre,BufNewFile SConstruct,SConscript set ft=python
 
 au FileType c,cpp setlocal sw=2 ts=2 cinoptions=g0,i2
-autocmd FileType c,cpp setlocal commentstring=//\ %s
 
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
@@ -326,10 +325,14 @@ endif
 
 
 CONFIG_FILE(vim, ~/.vim/after/ftplugin/c.vim)
+" ideally these would just be an autocommands, but they are overriden by the
+" builtin ftplugin D:
+
 " recognise doxygen comments
-" ideally this would just be an autocommand, but on older vims (I think) this
-" is overriden by the builtin ftplugin D:
 setlocal comments^=:///
+
+" assume C99/C++
+setlocal commentstring=//\ %s
 
 CONFIG_FILE(vim, ~/.vim/after/plugin/mappings-override.vim)
 " configure vim-linux-coding-style
