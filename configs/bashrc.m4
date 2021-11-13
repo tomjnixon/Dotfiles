@@ -46,9 +46,9 @@ alias ga="git add"
 alias gap="git add -p"
 
 function gapf() {
-    local files;
-    files="$(gs --porcelain | grep '^.M' | cut -c 4- | fzf -m)"
-    [ $? -eq 0 ] && git add -p $files
+    local files="$(gs --porcelain | grep '^.M' | cut -c 4- | fzf -m)"
+    local root="$(git rev-parse --show-toplevel)"
+    [ $? -eq 0 ] && (cd "$root" && git add -p $files)
 }
 
 function gaf() {
