@@ -145,6 +145,8 @@ function _activate_current_venv() {
 }
 _activate_current_venv
 
+ON_COMPUTER(!NIX)
+
 function get_desk() {
 	i3-msg -t GET_WORKSPACES | \
 		jshon -a -e focused -u -p -e name -u | \
@@ -169,7 +171,6 @@ function there() {
 	_activate_current_venv
 }
 
-ON_COMPUTER(!NIX)
 function update_wheels() {
     pip3 wheel -r ~/.pip/wheels.txt
 }
@@ -196,8 +197,10 @@ function venv2() { python2 -m virtualenv "$@" && activate_venv "${@: -1}"; }
 function venv3() { python3 -m venv "$@" && activate_venv "${@: -1}"; }
 function venv() { venv3 "$@"; }
 
+ON_COMPUTER(!NIX)
 function pass() {
     # tell vim not to write files that might leak the password
     VIM_NO_WRITE_TMP=1 /usr/bin/pass "$@"
 }
 [ -f /usr/share/bash-completion/completions/pass ] && source /usr/share/bash-completion/completions/pass
+END_COMPUTER()
