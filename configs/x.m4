@@ -62,8 +62,10 @@ keycode 0x42 = Escape
 
 EXECUTABLE_FILE(x, ~/bin/setup_x)
 #!/bin/bash
+ON_COMPUTER(!NIX)
 xrdb ~/.Xdefaults
 xrdb -merge ~/.Xjellybeans
+END_COMPUTER()
 
 xset r rate 200 25 &
 setxkbmap IF_COMPUTER(MPC, us, gb)
