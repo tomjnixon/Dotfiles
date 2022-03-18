@@ -67,9 +67,18 @@ xrdb ~/.Xdefaults
 xrdb -merge ~/.Xjellybeans
 END_COMPUTER()
 
-xset r rate 200 25 &
-setxkbmap IF_COMPUTER(MPC, us, gb)
-xmodmap ~/.Xmodmap
+xset r rate 200 25
+setxkbmap -layout IF_COMPUTER(MPC, us, gb) \
+    -option '' \
+    -option caps:escape \
+    -option terminate:ctrl_alt_bksp
+
+for id in $(xinput --list | grep "ThinkPad USB Keyboard.*slave.*keyboard" | grep -Po 'id=\K[0-9]+'); do
+    setxkbmap -device $id -layout gb \
+    -option '' \
+    -option caps:escape \
+    -option terminate:ctrl_alt_bksp
+done
 
 xset s 600 5
 
