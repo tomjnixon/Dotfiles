@@ -272,6 +272,9 @@ au Filetype mail set spell
 au Filetype rst set spell
 au Filetype markdown set spell
 
+" sensible.vim 2.0 no longer sets autoindent
+au Filetype markdown set autoindent
+
 " allow telling vim to not write any swap/backup/view files.
 if $VIM_NO_WRITE_TMP == 1
 	set noswapfile
