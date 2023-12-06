@@ -89,7 +89,8 @@ for id in $(xinput --list | grep "TrackPoint" | grep -Po 'id=\K[0-9]+'); do
         xinput set-int-prop $id "Evdev Wheel Emulation Button" 8 2
         xinput set-int-prop $id "Evdev Wheel Emulation Axes" 8 6 7 4 5
 ON_COMPUTER(WORK_LAPTOP)
-        xinput set-prop $id "Device Accel Constant Deceleration" 0.4
+        xinput set-prop $id "Accel Speed" 0.5
+        xinput set-prop $id "libinput Scrolling Pixel Distance" 10
 END_COMPUTER()
 done
 
